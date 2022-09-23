@@ -22,6 +22,7 @@ project/plugins/project/
 
 # Scala-IDE specific
 .scala_dependencies
+.scala
 .worksheet
 .scalafmt.conf
 .idea
