@@ -1,4 +1,4 @@
-package utils.classes
+package problemutils.classes
 
 enum Cardinal(y: Int, x: Int):
   import Cardinal.*

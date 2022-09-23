@@ -1,11 +1,14 @@
-package utils.classes
-import utils.*
-import utils.extensions.*
+package problemutils.classes
 
-sealed trait Example[A](val solution: A)
-case object Skip extends Example[Any](None)
-case class Primary[A](override val solution: A) extends Example[A](solution)
-case class Secondary[A](override val solution: A) extends Example[A](solution)
+import problemutils.*, extensions.*
+
+sealed trait Example[A]:
+  val solution: A
+
+case object Skip extends Example[Any]:
+  val solution = None
+case class Primary[A](solution: A) extends Example[A]
+case class Secondary[A](solution: A) extends Example[A]
 
 /** A simple wrapper class that includes the result of an evaluation and the time (in seconds) it took to evaluate it
  * @param result The final evaluation
@@ -19,7 +22,7 @@ object TimedEval:
     val result = block
     val duration = (System.nanoTime() - start) / 1E9
     TimedEval(duration, result)
-
+    
   def logTime[A](block: => A) = time(block).logAttr(_.duration).result
 
 object Testing:

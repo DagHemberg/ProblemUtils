@@ -1,4 +1,4 @@
-package utils
+package problemutils
 
 type Vec2 = (Int, Int)
 type Vec3 = (Int, Int, Int)

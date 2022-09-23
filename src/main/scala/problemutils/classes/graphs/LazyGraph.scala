@@ -1,4 +1,4 @@
-package utils.classes.graphs
+package problemutils.classes.graphs
 
 import scala.collection.mutable
 

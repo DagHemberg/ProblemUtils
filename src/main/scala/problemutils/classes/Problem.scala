@@ -1,7 +1,8 @@
-package utils.classes
+package problemutils.classes
+
 import scala.util.{Try, Success, Failure}
 import Console.*
-import utils.*
+import problemutils.*
 
 /** An abstract class for solving a problem from Advent of Code. 
   * @param year the year the problem is from
@@ -68,6 +69,7 @@ abstract class Problem[A]
         None
 
   private def writeResult(eval: TimedEval[A])(using Boolean) = 
+    // TODO refactor to use sbt-paut
     val date = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(java.util.Date())
     val res = s"$date;$year;$day;$part;${f"${eval.duration}%2.6f"}s;${eval.result};not submitted"
     val file = resources / "results.csv"
@@ -96,20 +98,22 @@ abstract class Problem[A]
     for i <- 1 to 100 do printlln()
     printlln(info(toString))
 
-    def solveExample(input: Option[List[String]], solution: A) = 
-      Try(timeSolve(input)) match
-        case Failure(e) => solvingError("example", e)
-        case Success(None) => None
-        case Success(Some(exampleEval)) =>
+    def solveExample(example: Option[List[String]], solution: A) = 
+      Try(timeSolve(example)).fold(
+        err => solvingError("example", err),
+        opt => opt flatMap { exampleEval => 
           if exampleEval.result == solution
           then solvingSuccess("example", exampleEval)
           else solvingFail("example", exampleEval)
+        }
+      )
 
-    def solvePuzzle = Try(timeSolve(puzzleInput)) match
-      case Failure(e) => solvingError("puzzle", e)
-      case Success(None) => None
-      case Success(Some(puzzleEval)) => 
-        solvingSuccess("puzzle", puzzleEval)
+    def solvePuzzle = 
+      printlln(info("Evaluating puzzle input..."))
+      Try(timeSolve(puzzleInput)).fold(
+        err => solvingError("puzzle", err),
+        opt => opt flatMap { puzzleEval => solvingSuccess("puzzle", puzzleEval) }
+      )
 
     val result = example match
       case Skip => 
@@ -120,11 +124,8 @@ abstract class Problem[A]
         val (exampleInput, solution) = sol match
           case Primary(solution) => (primaryExampleInput, solution)
           case Secondary(solution) => (secondaryExampleInput, solution)
-          case Skip => ??? // should be unreachable
-        solveExample(exampleInput, solution).flatMap(_ => 
-          printlln(info("Evaluating puzzle input..."))
-          solvePuzzle
-        )
+          case Skip => ??? // unreachable
+        solveExample(exampleInput, solution).flatMap(_ => solvePuzzle)
 
     result.foreach(writeResult)
     result

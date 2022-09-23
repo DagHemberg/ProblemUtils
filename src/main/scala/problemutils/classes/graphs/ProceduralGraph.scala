@@ -1,5 +1,6 @@
-package utils.classes.graphs
-import utils.extensions.*
+package problemutils.classes.graphs
+
+import problemutils.extensions.*
 
 case class ProceduralGraph[V] private (
     override val adjacencyFunction: V => Set[Edge[V]], 
@@ -20,10 +21,6 @@ object ProceduralGraph:
     ProceduralGraph(adj)
 
   def from[V](adjacencyFunction: V => Set[Edge[V]]) = ProceduralGraph(adjacencyFunction)
-
-  // def from[V](adjacencyFunction: V => IterableOnce[V]) = 
-  //   def adj(from: V) = adjacencyFunction(from).iterator.map(to => Edge(from, to)).toSet
-  //   ProceduralGraph(adj)
 
   def fromCost[V](adjacencyFunction: V => IterableOnce[(V, Double)]) =
     def adj(from: V) = adjacencyFunction(from).iterator.map((to, cost) => Edge(from, to, cost)).toSet

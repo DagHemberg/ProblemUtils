@@ -1,10 +1,10 @@
-package utils.classes.graphs
+package problemutils.classes.graphs
 
 import scala.collection.mutable
 
-case class FiniteGraph[V] private (elems: Set[Edge[V]]) extends Graph[V]:
+case class FiniteGraph[V] private (private val elems: Set[Edge[V]]) extends Graph[V]:
   override def toString = s"Graph(${elems.mkString(", ")})"
-  val edges = elems.toSet
+  val edges = elems
   lazy val edgesFrom = edges.groupBy(_.from) withDefaultValue Set.empty
   lazy val edgesTo = edges.groupBy(_.to) withDefaultValue Set.empty
   lazy val vertices = edges.flatMap(e => Set(e.u, e.v))

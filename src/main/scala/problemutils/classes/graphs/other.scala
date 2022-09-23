@@ -1,4 +1,5 @@
-package utils.classes.graphs
+package problemutils.classes.graphs
+
 import collection.mutable
 
 // not sure if i really need this?

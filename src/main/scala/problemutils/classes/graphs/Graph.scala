@@ -1,4 +1,4 @@
-package utils.classes.graphs
+package problemutils.classes.graphs
 
 import scala.collection.mutable
 
@@ -6,7 +6,7 @@ import scala.collection.mutable
 // - components: Set[Graph[V]]
 // - stronglyConnectedComponents: Set[Graph[V]]
 
-trait Graph[V]:
+abstract class Graph[V]:
   import Graph.*
   protected given adjacentTo: (V => Set[Edge[V]])
 
@@ -47,13 +47,13 @@ object Graph:
   def generate[V](adjacencyFunction: V => IterableOnce[V]) = 
     ProceduralGraph(adjacencyFunction)
   def generateWith[V](adjacencyFunction: V => IterableOnce[Edge[V]]) = 
-    ProceduralGraph.from((v: V) => adjacencyFunction(v).iterator.toSet)
+    ProceduralGraph.from(adjacencyFunction andThen (_.iterator.toSet))
 
   def generateLazily[V](adjacencyFunction: V => IterableOnce[V]) = 
     LazyGraph(adjacencyFunction)
   def generateLazilyWith[V](adjacencyFunction: V => IterableOnce[Edge[V]]) = 
-    LazyGraph.from((v: V) => adjacencyFunction(v).iterator.toSet)
-  
+    LazyGraph.from(adjacencyFunction andThen (_.iterator.toSet))
+    
   def empty[V] = FiniteGraph.empty[V]
 
   private def backtrack[V](current: V)(using prev: Map[V, V], start: V): Vector[V] =

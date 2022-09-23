@@ -1,6 +1,6 @@
-package utils.extensions
-import utils.*
+package problemutils.extensions
 
+import problemutils.*
 import scala.reflect.ClassTag
 import Console.*
 

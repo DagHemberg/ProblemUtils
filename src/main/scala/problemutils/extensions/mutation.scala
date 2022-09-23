@@ -1,5 +1,6 @@
-package utils.extensions
-import utils.*
+package problemutils.extensions
+
+import problemutils.*
 
 extension [A](a: A)
   /** Applies any function `A => A` on any object `n` times. If `n` is less than or equal to 0, the original object is returned without function application. */

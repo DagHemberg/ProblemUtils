@@ -1,12 +1,15 @@
-package utils.extensions
+package problemutils.extensions
 
-import utils.*
+import problemutils.*
 import math.Numeric.Implicits.infixNumericOps
 import math.Integral.Implicits.infixIntegralOps
 import math.Fractional.Implicits.infixFractionalOps
 
-extension (b: Boolean)
-  def toInt = if b then 1 else 0
+extension (p: Boolean)
+  def toInt = if p then 1 else 0
+  
+extension (p: Int)
+  def toBoolean = p != 0
 
 extension [A](mat: Matrix[Matrix[A]])
   def flatten = mat.rows
