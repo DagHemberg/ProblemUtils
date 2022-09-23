@@ -6,7 +6,7 @@ import scala.collection.mutable
 // - components: Set[Graph[V]]
 // - stronglyConnectedComponents: Set[Graph[V]]
 
-abstract class Graph[V]:
+trait Graph[V]:
   import Graph.*
   protected given adjacentTo: (V => Set[Edge[V]])
 
