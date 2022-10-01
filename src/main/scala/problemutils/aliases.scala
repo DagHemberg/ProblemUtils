@@ -5,13 +5,6 @@ type Vec3 = (Int, Int, Int)
 type Pos2D = Vec2
 type Pos3D = Vec3
 
-type Problem[A] = classes.Problem[A]
-type Primary[A] = classes.Primary[A]
-type Secondary[A] = classes.Secondary[A]
-val Primary = classes.Primary
-val Secondary = classes.Secondary
-val Skip = classes.Skip
-
 type Cardinal = classes.Cardinal
 type Hex = classes.Hex
 type TimedEval[A] = classes.TimedEval[A]

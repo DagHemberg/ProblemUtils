@@ -2,14 +2,6 @@ package problemutils.classes
 
 import problemutils.*, extensions.*
 
-sealed trait Example[A]:
-  val solution: A
-
-case object Skip extends Example[Any]:
-  val solution = None
-case class Primary[A](solution: A) extends Example[A]
-case class Secondary[A](solution: A) extends Example[A]
-
 /** A simple wrapper class that includes the result of an evaluation and the time (in seconds) it took to evaluate it
  * @param result The final evaluation
  * @param time Time elapsed while evaluating, in seconds
