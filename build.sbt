@@ -4,8 +4,11 @@ lazy val root = project
   .in(file("."))
   .enablePlugins(SiteScaladocPlugin, GhpagesPlugin)
   .settings(
-    console / initialCommands := "import problemutils.*, extensions.*",
     name := "ProblemUtils",
+    console / initialCommands := "import problemutils.*, extensions.*",
+    githubOwner := "DagHemberg",
+    githubRepository := "ProblemUtils",
+    publishMavenStyle := true,
     scalaVersion := scala3Version,
     SiteScaladoc / siteSubdirName := "api/latest",
     git.remoteRepo := "git@github.com:DagHemberg/ProblemUtils.git",
