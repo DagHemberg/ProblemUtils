@@ -5,16 +5,16 @@ import math.*, Numeric.Implicits.infixNumericOps
 
 /** A generic Matrix class. Useful for working with 2D structures.
  * @tparam A The type of elements in the matrix. When `A` is a [[scala.Numeric]] type, a number of extension methods are made available which allow for basic mathematical matrix operations.
- * @param rows The number of rows in the matrix.
- * @param cols The number of columns in the matrix.
- * @param size A tuple of the height and width of the matrix.
 */
 case class Matrix[A] private (private val input: Vector[Vector[A]]):
   extension [A] (input: Vector[Vector[A]]) private def tm = Matrix(input)
 
   val height = input.size
   val width = input.head.size
+
+  /** The height and width of this matrix. */
   val dimensions = (height, width)
+  /** The "area", or `height` x `width`, of this matrix. */
   val size = height * width
 
   // doesn't work super well (read: at all) with other multi-line toStrings 
@@ -31,13 +31,18 @@ case class Matrix[A] private (private val input: Vector[Vector[A]]):
         else s"\n${input.init.tail.map(row => s"⎜${pad(row)} ⎟").mkString("\n")}"
       }\n⎝${pad(input.last)} ⎠"
 
-  def apply(row: Int, col: Int): A = input(row)(col)
-  def apply(index: Pos2D): A = input(index.row)(index.col)
+  /** Returns the element at the given position `(row, col)` */
+  def apply(index: (Int, Int)): A = input(index.row)(index.col)
 
   def isSquare = height == width
+
+  /** Returns `true` if this matrix is equal to its own transpose. */
   def isSymmetric = this == transpose
 
+  /** Returns the row at the given index */
   def row(row: Int) = input(row)
+
+  /** Returns the column at the given index */
   def col(col: Int) = input.map(_(col))
   
   def toVector = input.flatten
@@ -51,10 +56,10 @@ case class Matrix[A] private (private val input: Vector[Vector[A]]):
       .map(row => (0 until width).toVector.map(col => (row, col)))
       .tm
 
-  def indexOutsideBounds(row: Int, col: Int): Boolean =
-    0 > row || row >= height || 0 > col || col >= width
+  // def indexOutsideBounds(row: Int, col: Int): Boolean =
+  //   0 > row || row >= height || 0 > col || col >= width
   def indexOutsideBounds(index: Pos2D): Boolean = 
-    indexOutsideBounds(index.row, index.col)
+    0 > index.row || index.row >= height || 0 > index.col || index.col >= width
 
   def map[B](f: A => B) = input.map(_.map(f)).tm
   def foreach[U](f: A => U) = input.foreach(_.foreach(f))
@@ -62,10 +67,8 @@ case class Matrix[A] private (private val input: Vector[Vector[A]]):
   def forall(f: A => Boolean) = input.forall(_.forall(f))
   def exists(f: A => Boolean) = input.exists(_.exists(f))
 
-  def slice(row: Int, col: Int)(height: Int, width: Int): Matrix[A] = 
-    input.slice(row, row + width).map(_.slice(col, col + height)).tm
-  def slice(index: Pos2D)(height: Int, width: Int): Matrix[A] = 
-    slice(index.row, index.col)(height, width)
+  def slice(index: (Int, Int))(height: Int, width: Int): Matrix[A] = 
+    input.slice(index.row, index.row + width).map(_.slice(index.col, index.col + height)).tm
 
   def reshape(height: Int, width: Int): Matrix[A] = 
     toVector.reshape(height, width)
@@ -73,6 +76,7 @@ case class Matrix[A] private (private val input: Vector[Vector[A]]):
   def filterRow(f: Vector[A] => Boolean) = input.filter(f).tm
   def filterCol(f: Vector[A] => Boolean) = input.transpose.filter(f).transpose.tm
 
+  /** Returns the [transpose](https://en.wikipedia.org/wiki/Transpose) of this matrix. */
   def transpose = input.transpose.tm
   def flipCols = input.map(_.reverse).tm
   def flipRows = input.reverse.tm
@@ -84,7 +88,6 @@ case class Matrix[A] private (private val input: Vector[Vector[A]]):
   
   def swapCols(a: Int, b: Int) =
     Matrix(input.map(_.updated(a, input(a)(b)).updated(b, input(a)(a))))
-    // transpose.swapRows(a, b).transpose
 
   private def checkAppendHorizontal(other: Matrix[A]) = 
     require(
@@ -141,7 +144,7 @@ case class Matrix[A] private (private val input: Vector[Vector[A]]):
     val cs = other.cols
     Matrix(height, other.width)(rs(_) dot cs(_))
 
-  /** Computes the [determinant](https://en.wikipedia.org/wiki/Determinant) of the matrix.*/
+  /** Computes the [determinant](https://en.wikipedia.org/wiki/Determinant) of this matrix.*/
   def determinant(using Numeric[A]): A = 
     checkSquare("determinant")
     width match
@@ -151,6 +154,7 @@ case class Matrix[A] private (private val input: Vector[Vector[A]]):
         .map(i => (if i % 2 == 0 then apply(0, i) else -apply(0, i)) * (dropCol(i).dropRow(0)).determinant)
         .sum
 
+  /** Computes the [trace](https://en.wikipedia.org/wiki/Trace_(linear_algebra)) of this matrix.*/
   def trace(using Numeric[A]): A = 
     checkSquare("trace")
     (0 until width).map(i => apply(i, i)).sum
@@ -158,7 +162,6 @@ case class Matrix[A] private (private val input: Vector[Vector[A]]):
   def determinantOption(using Numeric[A]): Option[A] = if isSquare then Some(determinant) else None
   def traceOption(using Numeric[A]): Option[A] = if isSquare then Some(trace) else None
   
-
 object Matrix:
   extension [A] (input: Vector[Vector[A]]) private def tm = Matrix(input)
 
@@ -183,8 +186,9 @@ object Matrix:
   def fill[A](height: Int, width: Int)(elem: => A) = 
     Vector.fill(height, width)(elem).tm
 
-  def range(height: Int, width: Int) = 
-    Matrix(height, width)(_ * width + _)
+  /** Produces a matrix of the given dimensions, with the given starting value at the top-left (defaulting to 0), and counting up by 1 for each column and row (going right-down). */
+  def range(height: Int, width: Int, start: Int = 0) = 
+    Matrix(height, width)(_ * width + _ + start)
 
   /** Creates a 2x2 [rotation matrix](https://en.wikipedia.org/wiki/Rotation_matrix) for the given angle. */
   def rotation(rad: Double) = 
@@ -199,19 +203,19 @@ object Matrix:
     dir match
       case X => 
         Vector(
-          Vector(1, 0, 0), 
-          Vector(0, cos(rad), -sin(rad)), 
-          Vector(0, sin(rad), cos(rad))
+          Vector(1d, 0d, 0d), 
+          Vector(0d, cos(rad), -sin(rad)), 
+          Vector(0d, sin(rad), cos(rad))
         ).tm
       case Y =>
         Vector(
-          Vector(cos(rad), 0, sin(rad)), 
-          Vector(0, 1, 0), 
-          Vector(-sin(rad), 0, cos(rad))
+          Vector(cos(rad), 0d, sin(rad)), 
+          Vector(0d, 1d, 0d), 
+          Vector(-sin(rad), 0d, cos(rad))
         ).tm
       case Z =>
         Vector(
-          Vector(cos(rad), -sin(rad), 0), 
-          Vector(sin(rad), cos(rad), 0), 
-          Vector(0, 0, 1)
+          Vector(cos(rad), -sin(rad), 0d), 
+          Vector(sin(rad), cos(rad), 0d), 
+          Vector(0d, 0d, 1d)
         ).tm
