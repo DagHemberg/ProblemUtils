@@ -1,9 +1,13 @@
 package problemutils.extensions
 
 import problemutils.*
+
 import math.Numeric.Implicits.infixNumericOps
 import math.Integral.Implicits.infixIntegralOps
 import math.Fractional.Implicits.infixFractionalOps
+
+extension [V] (a: V)
+  def ->>(b: V): Edge[V] = Edge(a, b)
 
 extension (p: Boolean)
   def toInt = if p then 1 else 0
