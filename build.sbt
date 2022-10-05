@@ -6,9 +6,8 @@ lazy val root = project
   .settings(
     name := "ProblemUtils",
     console / initialCommands := "import problemutils.*, extensions.*",
-    githubOwner := "DagHemberg",
-    githubRepository := "ProblemUtils",
-    publishMavenStyle := true,
+    // githubOwner := "DagHemberg",
+    // githubRepository := "ProblemUtils",
     scalaVersion := scala3Version,
     SiteScaladoc / siteSubdirName := "api/latest",
     git.remoteRepo := "git@github.com:DagHemberg/ProblemUtils.git",
