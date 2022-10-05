@@ -14,12 +14,14 @@ extension [A](xs: Seq[A])
     if xs.size % 2 == 0 then (sorted(half) + sorted(half - 1)).toDouble / 2
     else sorted(half).toDouble
 
+  /** Computes the [root mean square](https://en.wikipedia.org/wiki/Root_mean_square) of this sequence. */
   def rms (using Numeric[A]) = math.sqrt(xs.map(x => x * x).sum.toDouble / xs.size)
-  
+
+  /** Reshapes this sequence into a [[problemutils.classes.Matrix]] of the given width and height. */
   def reshape(height: Int, width: Int): Matrix[A] = 
     require(
       height * width == xs.size, 
-      s"Cannot reshape ${xs.size} elements into Matrix of size ($height, $width)"
+      s"Cannot reshape ${xs.size} elements into Matrix of dimenions ($height, $width)"
     )
     xs.grouped(width).toVector.toMatrix
 
@@ -45,10 +47,10 @@ extension [A: Numeric](xs: Vector[A])
       xs(0) * ys(1) - xs(1) * ys(0)
     )
 
-  /** Returns the [magnitude](https://en.wikipedia.org/wiki/Magnitude_(mathematics)#Vector_spaces) of the vector. */
+  /** Returns the [magnitude](https://en.wikipedia.org/wiki/Magnitude_(mathematics)#Vector_spaces) of this vector. */
   def magnitude = math.sqrt((xs dot xs).toDouble)
 
-  /** Returns a [normalized](https://en.wikipedia.org/wiki/Unit_vector) version of the vector. */
+  /** Returns a [normalized](https://en.wikipedia.org/wiki/Unit_vector) version of this vector. */
   def normalized = xs.map(_.toDouble * (1.0 / xs.magnitude))
 
 extension (str: String)
