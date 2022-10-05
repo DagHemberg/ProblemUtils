@@ -5,7 +5,7 @@ import scala.collection.mutable
 case class LazyGraph[V] private (
   override val adjacencyFunction: V => Set[Edge[V]], 
   private val any: Any = None
-) extends GeneratorGraph[V](adjacencyFunction):
+) extends GeneratingGraph[V](adjacencyFunction):
   
   override def toString = if edges.isEmpty 
     then "LazyGraph(<not computed>)"

@@ -19,21 +19,22 @@ case class FiniteGraph[V] private (private val elems: Set[Edge[V]]) extends Grap
 
   def union(other: Graph[V]) = other match
     case g: FiniteGraph[V] => FiniteGraph(elems union g.elems)
-    case g: GeneratorGraph[V] => g union this
+    case g: GeneratingGraph[V] => g union this
 
   def intersect(other: Graph[V]) = other match
     case g: FiniteGraph[V] => FiniteGraph(elems intersect g.elems)
-    case g: GeneratorGraph[V] => g intersect this
+    case g: GeneratingGraph[V] => g intersect this
 
   def diff(other: Graph[V]) = other match
     case g: FiniteGraph[V] => FiniteGraph(elems diff g.elems)
-    case g: GeneratorGraph[V] => g diff this
+    case g: GeneratingGraph[V] => g diff this
 
+  /** Reverses all the edges in the graph. */
   def transpose = Graph.from(edges.map(_.reverse))
   def totalCost = edges.toSeq.map(_.weight).sum
 
   def minimumSpanningGraph = 
-    val djs = DisjointSets(vertices)
+    val djs = DisjointSets.from(vertices)
     val connectingEdges = mutable.Set.empty[Edge[V]]
     val pq = mutable.PriorityQueue.empty[Edge[V]](Ordering.by(_.weight)).reverse
     pq ++= edges
