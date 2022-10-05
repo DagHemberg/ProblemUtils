@@ -5,7 +5,7 @@ import problemutils.extensions.*
 case class ProceduralGraph[V] private (
     override val adjacencyFunction: V => Set[Edge[V]], 
     private val any: Any = None
-  ) extends GeneratorGraph[V](adjacencyFunction):
+  ) extends GeneratingGraph[V](adjacencyFunction):
 
   override def toString = "ProceduralGraph(<not computed>)"
 
