@@ -7,8 +7,6 @@ type Pos3D = Vec3
 
 type Cardinal = classes.Cardinal
 type Hex = classes.Hex
-type TimedEval[A] = classes.TimedEval[A]
-val TimedEval = classes.TimedEval
 val Cardinal = classes.Cardinal
 val Hex = classes.Hex
 

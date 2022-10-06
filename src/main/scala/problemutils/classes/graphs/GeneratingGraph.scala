@@ -2,8 +2,7 @@ package problemutils.classes.graphs
 
 trait GeneratingGraph[V] (val adjacencyFunction: V => Set[Edge[V]]) extends Graph[V]:
 
-  // känns som jag bryter typ 12 heliga scala-lagar genom att göra så här
-  // men det verkar, somehow, funka
+  // känns som jag bryter hittils okända lagar i 12 landskap genom att göra så här
   given GeneratingGraph[V] = this
 
   def filterEdges(p: Edge[V] => Boolean) = 
