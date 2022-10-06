@@ -1,3 +1,6 @@
+version := "0.1.0-SNAPSHOT"
+versionScheme := Some("early-semver")
+
 lazy val root = project
   .in(file("."))
   .enablePlugins(SiteScaladocPlugin, GhpagesPlugin)
@@ -5,9 +8,6 @@ lazy val root = project
     name := "ProblemUtils",
     console / initialCommands := "import problemutils.*, extensions.*",
     scalaVersion := "3.2.0",
-
-    version := "0.1.1-SNAPSHOT",
-    organization := "com.github.daghemberg",
 
     libraryDependencies ++= Seq(
       "com.lihaoyi" %% "os-lib" % "0.8.0"
