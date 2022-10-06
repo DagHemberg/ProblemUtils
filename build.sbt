@@ -1,4 +1,4 @@
-version := "0.1.0-SNAPSHOT"
+version := "0.1.0"
 versionScheme := Some("early-semver")
 
 lazy val root = project

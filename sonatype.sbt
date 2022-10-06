@@ -7,6 +7,7 @@ sonatypeProfileName := "io.github.daghemberg"
 sonatypeCredentialHost := "s01.oss.sonatype.org"
 licenses := List(librarymanagement.License.MIT)
 sonatypeProjectHosting := Some(GitHubHosting("DagHemberg", "problemutils", "dag.hemberg@gmail.com"))
+pomIncludeRepository := { _ => false }
 
 publishTo := sonatypePublishToBundle.value
 publishMavenStyle := true
