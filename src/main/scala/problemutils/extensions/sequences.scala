@@ -21,7 +21,7 @@ extension [A](xs: Seq[A])
   def reshape(height: Int, width: Int): Matrix[A] = 
     require(
       height * width == xs.size, 
-      s"Cannot reshape ${xs.size} elements into Matrix of dimenions ($height, $width)"
+      s"Cannot reshape ${xs.size} elements into Matrix of dimensions ($height, $width)"
     )
     xs.grouped(width).toVector.toMatrix
 
