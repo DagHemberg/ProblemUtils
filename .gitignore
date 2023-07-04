@@ -39,4 +39,4 @@ null/
 *.worksheet.sc
 other/
 TODO.md
-.sala-build
+.scala-build
