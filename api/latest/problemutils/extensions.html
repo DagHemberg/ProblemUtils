@@ -1,38 +1,1229 @@
-<html><head><meta charset="utf-8"></meta><meta name="viewport" content="width=device-width, initial-scale=1"></meta><title>problemutils.extensions</title><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico"></link><script type="text/javascript" src="../scripts/theme.js"></script><script type="text/javascript" src="../scripts/searchData.js" defer="true"></script><script type="text/javascript" src="../scripts/scastieConfiguration.js" defer="true"></script><link rel="stylesheet" href="../styles/nord-light.css"></link><link rel="stylesheet" href="../styles/scalastyle.css"></link><link rel="stylesheet" href="../styles/colors.css"></link><link rel="stylesheet" href="../styles/dotty-icons.css"></link><link rel="stylesheet" href="../styles/diagram.css"></link><link rel="stylesheet" href="../styles/filter-bar.css"></link><link rel="stylesheet" href="../styles/code-snippets.css"></link><link rel="stylesheet" href="../styles/searchbar.css"></link><link rel="stylesheet" href="../styles/social-links.css"></link><link rel="stylesheet" href="../styles/ux.css"></link><link rel="stylesheet" href="../styles/versions-dropdown.css"></link><link rel="stylesheet" href="../styles/fontawesome.css"></link><script type="text/javascript" src="../hljs/highlight.min.js" defer="true"></script><script type="text/javascript" src="../scripts/hljs-scala3.js" defer="true"></script><script type="text/javascript" src="../scripts/ux.js" defer="true"></script><script type="text/javascript" src="../scripts/common/component.js" defer="true"></script><script type="text/javascript" src="../scripts/common/utils.js" defer="true"></script><script type="text/javascript" src="../scripts/components/FilterBar.js" defer="true"></script><script type="text/javascript" src="../scripts/components/DocumentableList.js" defer="true"></script><script type="text/javascript" src="../scripts/components/Input.js" defer="true"></script><script type="text/javascript" src="../scripts/components/FilterGroup.js" defer="true"></script><script type="text/javascript" src="../scripts/components/Filter.js" defer="true"></script><script type="text/javascript" src="../scripts/scaladoc-scalajs.js" defer="true"></script><script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js" defer="true"></script><script type="text/javascript" src="https://d3js.org/d3.v6.min.js" defer="true"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/graphlib-dot@0.6.2/dist/graphlib-dot.min.js" defer="true"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dagre-d3/0.6.1/dagre-d3.min.js" defer="true"></script><script type="text/javascript" src="https://scastie.scala-lang.org/embedded.js" defer="true"></script><script type="text/javascript" src="../scripts/data.js" defer="true"></script><script>var pathToRoot = "../";</script></head><body><div id="container"><div id="leftColumn"><div id="logo"><span><div class="projectName">ProblemUtils</div></span><div id="version"><div class="versions-dropdown"><div onclick="dropdownHandler()" id="dropdown-button" class="dropdownbtn dropdownbtnactive"><div id="dropdown-content" class="dropdown-content"><input type="text" placeholder="Search..." id="dropdown-input" onkeyup="filterFunction()"></input></div></div></div></div><div class="socials"></div></div><div id="paneSearch"></div><nav id="sideMenu2"><div class="ni expanded"><span class="nh expanded"><span class="ar"></span><a href="../index.html"><span>ProblemUtils</span></a></span><div class="ni "><span class="nh "><a href="../problemutils.html"><span class="micon pa"></span><span>problemutils</span></a></span></div><div class="ni"><span class="nh "><span class="ar"></span><a href="classes.html"><span class="micon pa"></span><span>problemutils.classes</span></a></span><div class="ni "><span class="nh "><a href="classes/Cardinal.html"><span class="micon en"></span><span>Cardinal</span></a></span></div><div class="ni "><span class="nh "><a href="classes/Hex.html"><span class="micon en"></span><span>Hex</span></a></span></div><div class="ni "><span class="nh "><a href="classes/Matrix.html"><span class="micon cl"></span><span>Matrix</span></a></span></div><div class="ni"><span class="nh "><span class="ar"></span><a href="classes/Matrix$.html"><span class="micon ob"></span><span>Matrix</span></a></span><div class="ni "><span class="nh "><a href="classes/Matrix$$Axis.html"><span class="micon en"></span><span>Axis</span></a></span></div></div></div><div class="ni"><span class="nh "><span class="ar"></span><a href="classes/graphs.html"><span class="micon pa"></span><span>problemutils.classes.graphs</span></a></span><div class="ni "><span class="nh "><a href="classes/graphs/DisjointSets.html"><span class="micon cl"></span><span>DisjointSets</span></a></span></div><div class="ni "><span class="nh "><a href="classes/graphs/DisjointSets$.html"><span class="micon ob"></span><span>DisjointSets</span></a></span></div><div class="ni "><span class="nh "><a href="classes/graphs/Edge.html"><span class="micon cl"></span><span>Edge</span></a></span></div><div class="ni "><span class="nh "><a href="classes/graphs/FiniteGraph.html"><span class="micon cl"></span><span>FiniteGraph</span></a></span></div><div class="ni "><span class="nh "><a href="classes/graphs/FiniteGraph$.html"><span class="micon ob"></span><span>FiniteGraph</span></a></span></div><div class="ni "><span class="nh "><a href="classes/graphs/GeneratingGraph.html"><span class="micon tr"></span><span>GeneratingGraph</span></a></span></div><div class="ni "><span class="nh "><a href="classes/graphs/Graph.html"><span class="micon tr"></span><span>Graph</span></a></span></div><div class="ni "><span class="nh "><a href="classes/graphs/Graph$.html"><span class="micon ob"></span><span>Graph</span></a></span></div><div class="ni "><span class="nh "><a href="classes/graphs/LazyGraph.html"><span class="micon cl"></span><span>LazyGraph</span></a></span></div><div class="ni "><span class="nh "><a href="classes/graphs/LazyGraph$.html"><span class="micon ob"></span><span>LazyGraph</span></a></span></div><div class="ni "><span class="nh "><a href="classes/graphs/Path.html"><span class="micon cl"></span><span>Path</span></a></span></div><div class="ni "><span class="nh "><a href="classes/graphs/ProceduralGraph.html"><span class="micon cl"></span><span>ProceduralGraph</span></a></span></div><div class="ni "><span class="nh "><a href="classes/graphs/ProceduralGraph$.html"><span class="micon ob"></span><span>ProceduralGraph</span></a></span></div><div class="ni "><span class="nh "><a href="classes/graphs/Tree.html"><span class="micon cl"></span><span>Tree</span></a></span></div></div><div class="ni expanded"><span class="nh selected"><a href="extensions.html"><span class="micon pa"></span><span>problemutils.extensions</span></a></span></div></div></nav></div><div id="main"><div id="leftToggler"><span class="icon-toggler"></span></div><div id="scaladoc-searchBar"></div><main id="main-content"><div class="breadcrumbs container"><a href="../index.html">ProblemUtils</a>/<a href="extensions.html">problemutils.extensions</a></div><div id="content"><div><div class="cover-header"><span class="micon pa"></span><h1>problemutils.extensions</h1></div><div class="signature monospace"><span class="annotations monospace"></span><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">package </span></span><a href="extensions.html" class="documentableName ">problemutils.extensions</a><span></span></div></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div><div class="documentableFilter"><div class="filterUpperContainer"><button class="filterToggleButton" data-test-id="filterToggleButton">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-            <path d="M0 0h24v24H0z" fill="none"/>
-            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-          </svg>
-        </button><input class="filterableInput" placeholder="Filter all members" data-test-id="filterBarInput"></input></div><div class="filterLowerContainer"></div></div><div class="membersList"><div class="tabs"><div class="names"><button data-togglable="Extensions" class="tab selected">Extensions</button></div><div class="contents"><div data-togglable="Extensions" class="tab selected"><h2 data-togglable="Extensions">Extensions</h2><div class="documentableList"><h3 class="groupHeader">Extensions</h3><div><span class="groupHeader"><span t="k">extension </span>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>](a: <span data-unresolved-link="" t="t">A</span>)</span><div class="documentableElement" id="getType-fffff404"><a link="extensions.html#getType-fffff404" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#getType-fffff404" class="documentableName ">getType</a><span>(<span t="k">implicit </span><span t="k"></span>ct: <span data-unresolved-link="" t="t">ClassTag</span>[<span data-unresolved-link="" t="t">A</span>]): <span data-unresolved-link="" t="t">String</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="lg-957"><a link="extensions.html#lg-957" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#lg-957" class="documentableName ">lg</a><span>: <span data-unresolved-link="" t="t">A</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"><p>Logs any object <code>a</code> in the console without the &quot;[*]&quot; prefix and then returns the object without modifying it.</p>
-</div><div class="cover"><div class="doc"><p>Logs any object <code>a</code> in the console without the &quot;[*]&quot; prefix and then returns the object without modifying it.</p>
-</div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="log-957"><a link="extensions.html#log-957" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#log-957" class="documentableName ">log</a><span>: <span data-unresolved-link="" t="t">A</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"><p>Logs any object <code>a</code> in the console and then returns the object without modifying it.</p>
-</div><div class="cover"><div class="doc"><p>Logs any object <code>a</code> in the console and then returns the object without modifying it.</p>
-</div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="logAttr-fffffd97"><a link="extensions.html#logAttr-fffffd97" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#logAttr-fffffd97" class="documentableName ">logAttr</a><span>[<span t="k"></span><span data-unresolved-link="" t="t">B</span>](<span t="k"></span><span t="k"></span>f: <span t="t">A</span><span t="k"> =&gt; </span><span t="t">B</span>): <span data-unresolved-link="" t="t">A</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"><p>Logs any attribute of object <code>a</code> in the console and then returns the object without modifying it.</p>
-</div><div class="cover"><div class="doc"><p>Logs any attribute of object <code>a</code> in the console and then returns the object without modifying it.</p>
-</div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="logCol-dbc"><a link="extensions.html#logCol-dbc" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#logCol-dbc" class="documentableName ">logCol</a><span>(<span t="k"></span><span t="k"></span>color: <span data-unresolved-link="" t="t">String</span>): <span data-unresolved-link="" t="t">A</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"><p>Similar to <code>log</code>, but takes a color parameter.</p>
-</div><div class="cover"><div class="doc"><p>Similar to <code>log</code>, but takes a color parameter.</p>
-</div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="logIf-be0"><a link="extensions.html#logIf-be0" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#logIf-be0" class="documentableName ">logIf</a><span>(<span t="k"></span><span t="k"></span>p: <span data-unresolved-link="" t="t">A</span><span t="k"> =&gt; </span><span data-unresolved-link="" t="t">Boolean</span>): <span data-unresolved-link="" t="t">A</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"><p>Logs any object <code>a</code> in the console <em>if</em> the condition <code>p</code> is satisfied and then returns the object without modifying it.</p>
-</div><div class="cover"><div class="doc"><p>Logs any object <code>a</code> in the console <em>if</em> the condition <code>p</code> is satisfied and then returns the object without modifying it.</p>
-</div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="space-957"><a link="extensions.html#space-957" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#space-957" class="documentableName ">space</a><span>: <span data-unresolved-link="" t="t">A</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"><p>Prints an empty line in the console and returns the object without modifying it. Useful for debugging.</p>
-</div><div class="cover"><div class="doc"><p>Prints an empty line in the console and returns the object without modifying it. Useful for debugging.</p>
-</div><dl class="attributes"></dl></div></div></div></div></div></div><div><span class="groupHeader"><span t="k">extension </span>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>](a: <span data-unresolved-link="" t="t">A</span>)</span><div class="documentableElement" id="converge-be0"><a link="extensions.html#converge-be0" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#converge-be0" class="documentableName ">converge</a><span>(<span t="k"></span><span t="k"></span>f: <span data-unresolved-link="" t="t">A</span><span t="k"> =&gt; </span><span data-unresolved-link="" t="t">A</span>): <span data-unresolved-link="" t="t">A</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"><p>Recursively applies a function <code>f: A =&gt; A</code> on any object <code>a</code> until <code>f(a)</code> is equal to <code>a</code>.</p>
-</div><div class="cover"><div class="doc"><p>Recursively applies a function <code>f: A =&gt; A</code> on any object <code>a</code> until <code>f(a)</code> is equal to <code>a</code>.</p>
-</div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="doUntil-637"><a link="extensions.html#doUntil-637" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#doUntil-637" class="documentableName ">doUntil</a><span>(<span t="k"></span><span t="k"></span>p: <span data-unresolved-link="" t="t">A</span><span t="k"> =&gt; </span><span data-unresolved-link="" t="t">Boolean</span>)(<span t="k"></span><span t="k"></span>f: <span data-unresolved-link="" t="t">A</span><span t="k"> =&gt; </span><span data-unresolved-link="" t="t">A</span>): <span data-unresolved-link="" t="t">A</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"><p>Recursively applies a function <code>f: A =&gt; A</code> on any object <code>a</code> until the predicate <code>p</code> is satisfied.</p>
-</div><div class="cover"><div class="doc"><p>Recursively applies a function <code>f: A =&gt; A</code> on any object <code>a</code> until the predicate <code>p</code> is satisfied.</p>
-</div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="expand-fffff1bb"><a link="extensions.html#expand-fffff1bb" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#expand-fffff1bb" class="documentableName ">expand</a><span>(<span t="k"></span><span t="k"></span>f: <span data-unresolved-link="" t="t">A</span><span t="k"> =&gt; </span><span data-unresolved-link="" t="t">IterableOnce</span>[<span data-unresolved-link="" t="t">A</span>]): <span data-unresolved-link="" t="t">Set</span>[<span data-unresolved-link="" t="t">A</span>]</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"><p>Performs a flood-fill using a neighbour function <code>f: A =&gt; IterableOnce[A]</code>. Returns a set of all elements generated by the function with the starting point <code>a</code>.</p>
-</div><div class="cover"><div class="doc"><p>Performs a flood-fill using a neighbour function <code>f: A =&gt; IterableOnce[A]</code>. Returns a set of all elements generated by the function with the starting point <code>a</code>.</p>
-</div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="iterate-ffffff0d"><a link="extensions.html#iterate-ffffff0d" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#iterate-ffffff0d" class="documentableName ">iterate</a><span>(<span t="k"></span><span t="k"></span>f: <span data-unresolved-link="" t="t">A</span><span t="k"> =&gt; </span><span data-unresolved-link="" t="t">A</span>)(<span t="k"></span><span t="k"></span>n: <span data-unresolved-link="" t="t">Int</span>): <span data-unresolved-link="" t="t">A</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"><p>Applies any function <code>A =&gt; A</code> on any object <code>n</code> times. If <code>n</code> is less than or equal to 0, the original object is returned without function application.</p>
-</div><div class="cover"><div class="doc"><p>Applies any function <code>A =&gt; A</code> on any object <code>n</code> times. If <code>n</code> is less than or equal to 0, the original object is returned without function application.</p>
-</div><dl class="attributes"></dl></div></div></div></div></div></div><div><span class="groupHeader"><span t="k">extension </span>[<span t="k"></span><span data-unresolved-link="" t="t">V</span>](a: <span data-unresolved-link="" t="t">V</span>)</span><div class="documentableElement" id="->>-fffffe59"><a link="extensions.html#->>-fffffe59" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#->>-fffffe59" class="documentableName ">-&gt;&gt;</a><span>(<span t="k"></span><span t="k"></span>b: <span data-unresolved-link="" t="t">V</span>): <a href="classes/graphs/Edge.html" t="t">Edge</a>[<span data-unresolved-link="" t="t">V</span>]</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div></div><div><span class="groupHeader"><span t="k">extension </span>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>](mat: <a href="classes/Matrix.html" t="t">Matrix</a>[<a href="classes/Matrix.html" t="t">Matrix</a>[<span data-unresolved-link="" t="t">A</span>]])</span><div class="documentableElement" id="flatten-251"><a link="extensions.html#flatten-251" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#flatten-251" class="documentableName ">flatten</a><span>: <a href="classes/Matrix.html" t="t">Matrix</a>[<span data-unresolved-link="" t="t">A</span>]</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div></div><div><span class="groupHeader"><span t="k">extension </span>(p: <span data-unresolved-link="" t="t">Boolean</span>)</span><div class="documentableElement" id="toInt-3c7"><a link="extensions.html#toInt-3c7" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#toInt-3c7" class="documentableName ">toInt</a><span>: <span data-unresolved-link="" t="t">Int</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div></div><div><span class="groupHeader"><span t="k">extension </span>(p: <span data-unresolved-link="" t="t">Int</span>)</span><div class="documentableElement" id="toBoolean-ffffff99"><a link="extensions.html#toBoolean-ffffff99" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#toBoolean-ffffff99" class="documentableName ">toBoolean</a><span>: <span data-unresolved-link="" t="t">Boolean</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div></div><div><span class="groupHeader"><span t="k">extension </span>(str: <span data-unresolved-link="" t="t">String</span>)</span><div class="documentableElement" id="findAllMatchWith-fffff048"><a link="extensions.html#findAllMatchWith-fffff048" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#findAllMatchWith-fffff048" class="documentableName ">findAllMatchWith</a><span>(<span t="k"></span><span t="k"></span>regex: <span data-unresolved-link="" t="t">String</span>): <span data-unresolved-link="" t="t">List</span>[<span data-unresolved-link="" t="t">Match</span>]</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="findAllWith-fffff048"><a link="extensions.html#findAllWith-fffff048" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#findAllWith-fffff048" class="documentableName ">findAllWith</a><span>(<span t="k"></span><span t="k"></span>regex: <span data-unresolved-link="" t="t">String</span>): <span data-unresolved-link="" t="t">List</span>[<span data-unresolved-link="" t="t">String</span>]</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="findMatchWith-fffffa07"><a link="extensions.html#findMatchWith-fffffa07" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#findMatchWith-fffffa07" class="documentableName ">findMatchWith</a><span>(<span t="k"></span><span t="k"></span>regex: <span data-unresolved-link="" t="t">String</span>): <span data-unresolved-link="" t="t">Option</span>[<span data-unresolved-link="" t="t">Match</span>]</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="findWith-fffffa07"><a link="extensions.html#findWith-fffffa07" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#findWith-fffffa07" class="documentableName ">findWith</a><span>(<span t="k"></span><span t="k"></span>regex: <span data-unresolved-link="" t="t">String</span>): <span data-unresolved-link="" t="t">Option</span>[<span data-unresolved-link="" t="t">String</span>]</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="padLeftTo-165"><a link="extensions.html#padLeftTo-165" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#padLeftTo-165" class="documentableName ">padLeftTo</a><span>(<span t="k"></span><span t="k"></span>n: <span data-unresolved-link="" t="t">Int</span>, <span t="k"></span>char: <span data-unresolved-link="" t="t">Char</span>): <span data-unresolved-link="" t="t">String</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="rows-94d"><a link="extensions.html#rows-94d" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#rows-94d" class="documentableName ">rows</a><span>: <span data-unresolved-link="" t="t">List</span>[<span data-unresolved-link="" t="t">String</span>]</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="words-94d"><a link="extensions.html#words-94d" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#words-94d" class="documentableName ">words</a><span>: <span data-unresolved-link="" t="t">List</span>[<span data-unresolved-link="" t="t">String</span>]</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div></div><div><span class="groupHeader"><span t="k">extension </span>(tup: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>)</span><div class="documentableElement" id="+-fffffc96"><a link="extensions.html#+-fffffc96" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#+-fffffc96" class="documentableName ">+</a><span>(<span t="k"></span><span t="k"></span>other: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>): (<span data-unresolved-link="" t="t">Int</span>, <span data-unresolved-link="" t="t">Int</span>)</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="--fffffc96"><a link="extensions.html#--fffffc96" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#--fffffc96" class="documentableName ">-</a><span>(<span t="k"></span><span t="k"></span>other: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>): (<span data-unresolved-link="" t="t">Int</span>, <span data-unresolved-link="" t="t">Int</span>)</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="col-fffff835"><a link="extensions.html#col-fffff835" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#col-fffff835" class="documentableName ">col</a><span>: <span data-unresolved-link="" t="t">Int</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="distance-fffff6fd"><a link="extensions.html#distance-fffff6fd" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#distance-fffff6fd" class="documentableName ">distance</a><span>(<span t="k"></span><span t="k"></span>other: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>): <span data-unresolved-link="" t="t">Double</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="dl-364"><a link="extensions.html#dl-364" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#dl-364" class="documentableName ">dl</a><span>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="down-364"><a link="extensions.html#down-364" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#down-364" class="documentableName ">down</a><span>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="dr-364"><a link="extensions.html#dr-364" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#dr-364" class="documentableName ">dr</a><span>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="left-364"><a link="extensions.html#left-364" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#left-364" class="documentableName ">left</a><span>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="manhattan-c43"><a link="extensions.html#manhattan-c43" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#manhattan-c43" class="documentableName ">manhattan</a><span>(<span t="k"></span><span t="k"></span>other: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>): <span data-unresolved-link="" t="t">Int</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="move-744"><a link="extensions.html#move-744" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#move-744" class="documentableName ">move</a><span>(<span t="k"></span><span t="k"></span>dir: <a href="../problemutils.html#Cardinal-0" t="t">Cardinal</a>): <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="neighbours-6e0"><a link="extensions.html#neighbours-6e0" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#neighbours-6e0" class="documentableName ">neighbours</a><span>: <span data-unresolved-link="" t="t">List</span>[<a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>]</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="neighboursDiag-6e0"><a link="extensions.html#neighboursDiag-6e0" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#neighboursDiag-6e0" class="documentableName ">neighboursDiag</a><span>: <span data-unresolved-link="" t="t">List</span>[<a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>]</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="neighboursDiagIn-fffffb8c"><a link="extensions.html#neighboursDiagIn-fffffb8c" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#neighboursDiagIn-fffffb8c" class="documentableName ">neighboursDiagIn</a><span>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>](<span t="k">using </span><span t="k"></span>mat: <a href="classes/Matrix.html" t="t">Matrix</a>[<span t="t">A</span>]): <span data-unresolved-link="" t="t">List</span>[<span data-unresolved-link="" t="t">A</span>]</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="neighboursIn-fffffb8c"><a link="extensions.html#neighboursIn-fffffb8c" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#neighboursIn-fffffb8c" class="documentableName ">neighboursIn</a><span>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>](<span t="k">using </span><span t="k"></span>mat: <a href="classes/Matrix.html" t="t">Matrix</a>[<span t="t">A</span>]): <span data-unresolved-link="" t="t">List</span>[<span data-unresolved-link="" t="t">A</span>]</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="neighboursOrth-6e0"><a link="extensions.html#neighboursOrth-6e0" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#neighboursOrth-6e0" class="documentableName ">neighboursOrth</a><span>: <span data-unresolved-link="" t="t">List</span>[<a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>]</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="neighboursOrthIn-fffffb8c"><a link="extensions.html#neighboursOrthIn-fffffb8c" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#neighboursOrthIn-fffffb8c" class="documentableName ">neighboursOrthIn</a><span>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>](<span t="k">using </span><span t="k"></span>mat: <a href="classes/Matrix.html" t="t">Matrix</a>[<span t="t">A</span>]): <span data-unresolved-link="" t="t">List</span>[<span data-unresolved-link="" t="t">A</span>]</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="right-364"><a link="extensions.html#right-364" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#right-364" class="documentableName ">right</a><span>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="row-fffff835"><a link="extensions.html#row-fffff835" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#row-fffff835" class="documentableName ">row</a><span>: <span data-unresolved-link="" t="t">Int</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="toVector-ffffff05"><a link="extensions.html#toVector-ffffff05" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#toVector-ffffff05" class="documentableName ">toVector</a><span>: <span data-unresolved-link="" t="t">Vector</span>[<span data-unresolved-link="" t="t">Int</span>]</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="transpose-364"><a link="extensions.html#transpose-364" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#transpose-364" class="documentableName ">transpose</a><span>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="ul-364"><a link="extensions.html#ul-364" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#ul-364" class="documentableName ">ul</a><span>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="up-364"><a link="extensions.html#up-364" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#up-364" class="documentableName ">up</a><span>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="ur-364"><a link="extensions.html#ur-364" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#ur-364" class="documentableName ">ur</a><span>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="x-fffff835"><a link="extensions.html#x-fffff835" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#x-fffff835" class="documentableName ">x</a><span>: <span data-unresolved-link="" t="t">Int</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="y-fffff835"><a link="extensions.html#y-fffff835" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#y-fffff835" class="documentableName ">y</a><span>: <span data-unresolved-link="" t="t">Int</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div></div><div><span class="groupHeader"><span t="k">extension </span>(v: <a href="../problemutils.html#Pos3D-0" t="t">Pos3D</a>)</span><div class="documentableElement" id="+-19"><a link="extensions.html#+-19" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#+-19" class="documentableName ">+</a><span>(<span t="k"></span><span t="k"></span>other: <a href="../problemutils.html#Pos3D-0" t="t">Pos3D</a>): (<span data-unresolved-link="" t="t">Int</span>, <span data-unresolved-link="" t="t">Int</span>, <span data-unresolved-link="" t="t">Int</span>)</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="--19"><a link="extensions.html#--19" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#--19" class="documentableName ">-</a><span>(<span t="k"></span><span t="k"></span>other: <a href="../problemutils.html#Pos3D-0" t="t">Pos3D</a>): (<span data-unresolved-link="" t="t">Int</span>, <span data-unresolved-link="" t="t">Int</span>, <span data-unresolved-link="" t="t">Int</span>)</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="distance-a7f"><a link="extensions.html#distance-a7f" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#distance-a7f" class="documentableName ">distance</a><span>(<span t="k"></span><span t="k"></span>other: <a href="../problemutils.html#Pos3D-0" t="t">Pos3D</a>): <span data-unresolved-link="" t="t">Double</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="manhattan-fffff801"><a link="extensions.html#manhattan-fffff801" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#manhattan-fffff801" class="documentableName ">manhattan</a><span>(<span t="k"></span><span t="k"></span>other: <a href="../problemutils.html#Pos3D-0" t="t">Pos3D</a>): <span data-unresolved-link="" t="t">Int</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="move-fffff51d"><a link="extensions.html#move-fffff51d" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#move-fffff51d" class="documentableName ">move</a><span>(<span t="k"></span><span t="k"></span>dir: <a href="../problemutils.html#Hex-0" t="t">Hex</a>): (<span data-unresolved-link="" t="t">Int</span>, <span data-unresolved-link="" t="t">Int</span>, <span data-unresolved-link="" t="t">Int</span>)</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="q-954"><a link="extensions.html#q-954" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#q-954" class="documentableName ">q</a><span>: <span data-unresolved-link="" t="t">Int</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="r-954"><a link="extensions.html#r-954" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#r-954" class="documentableName ">r</a><span>: <span data-unresolved-link="" t="t">Int</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="s-954"><a link="extensions.html#s-954" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#s-954" class="documentableName ">s</a><span>: <span data-unresolved-link="" t="t">Int</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="toVector-324"><a link="extensions.html#toVector-324" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#toVector-324" class="documentableName ">toVector</a><span>: <span data-unresolved-link="" t="t">Vector</span>[<span data-unresolved-link="" t="t">Int</span>]</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="x-954"><a link="extensions.html#x-954" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#x-954" class="documentableName ">x</a><span>: <span data-unresolved-link="" t="t">Int</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="y-954"><a link="extensions.html#y-954" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#y-954" class="documentableName ">y</a><span>: <span data-unresolved-link="" t="t">Int</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="z-954"><a link="extensions.html#z-954" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#z-954" class="documentableName ">z</a><span>: <span data-unresolved-link="" t="t">Int</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div></div><div><span class="groupHeader"><span t="k">extension </span>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>](vss: <span data-unresolved-link="" t="t">Seq</span>[<span data-unresolved-link="" t="t">Seq</span>[<span data-unresolved-link="" t="t">A</span>]])</span><div class="documentableElement" id="toMatrix-689"><a link="extensions.html#toMatrix-689" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#toMatrix-689" class="documentableName ">toMatrix</a><span>: <a href="classes/Matrix.html" t="t">Matrix</a>[<span data-unresolved-link="" t="t">A</span>]</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div></div><div><span class="groupHeader"><span t="k">extension </span>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>](xs: <span data-unresolved-link="" t="t">Vector</span>[<span data-unresolved-link="" t="t">A</span>])</span><div class="documentableElement" id="cross-fffff9b7" data-f-keywords="infix"><a link="extensions.html#cross-fffff9b7" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"><span t="k">infix </span></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#cross-fffff9b7" class="documentableName ">cross</a><span>(<span t="k"></span><span t="k"></span>ys: <span data-unresolved-link="" t="t">Vector</span>[<span data-unresolved-link="" t="t">A</span>])(<span t="k">implicit </span><span t="k"></span>evidence$3: <span data-unresolved-link="" t="t">Numeric</span>[<span data-unresolved-link="" t="t">A</span>]): <span data-unresolved-link="" t="t">Vector</span>[<span data-unresolved-link="" t="t">A</span>]</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"><p>Computes the cross product of 2 vectors of length 3.</p>
-</div><div class="cover"><div class="doc"><p>Computes the <a href="https://en.wikipedia.org/wiki/Cross_product">cross product</a> of 2 vectors of length 3.</p>
-</div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="dot-fffff7d3" data-f-keywords="infix"><a link="extensions.html#dot-fffff7d3" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"><span t="k">infix </span></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#dot-fffff7d3" class="documentableName ">dot</a><span>(<span t="k"></span><span t="k"></span>ys: <span data-unresolved-link="" t="t">Vector</span>[<span data-unresolved-link="" t="t">A</span>])(<span t="k">implicit </span><span t="k"></span>evidence$2: <span data-unresolved-link="" t="t">Numeric</span>[<span data-unresolved-link="" t="t">A</span>]): <span data-unresolved-link="" t="t">A</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"><p>Computes the dot product of 2 vectors of the same length.</p>
-</div><div class="cover"><div class="doc"><p>Computes the <a href="https://en.wikipedia.org/wiki/Dot_product">dot product</a> of 2 vectors of the same length.</p>
-</div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="magnitude-fffff42e"><a link="extensions.html#magnitude-fffff42e" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#magnitude-fffff42e" class="documentableName ">magnitude</a><span>(<span t="k">implicit </span><span t="k"></span>evidence$4: <span data-unresolved-link="" t="t">Numeric</span>[<span data-unresolved-link="" t="t">A</span>]): <span data-unresolved-link="" t="t">Double</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"><p>Returns the magnitude of this vector.</p>
-</div><div class="cover"><div class="doc"><p>Returns the <a href="https://en.wikipedia.org/wiki/Magnitude_(mathematics)#Vector_spaces">magnitude</a> of this vector.</p>
-</div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="normalized-482"><a link="extensions.html#normalized-482" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#normalized-482" class="documentableName ">normalized</a><span>(<span t="k">implicit </span><span t="k"></span>evidence$5: <span data-unresolved-link="" t="t">Numeric</span>[<span data-unresolved-link="" t="t">A</span>]): <span data-unresolved-link="" t="t">Vector</span>[<span data-unresolved-link="" t="t">Double</span>]</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"><p>Returns a normalized version of this vector.</p>
-</div><div class="cover"><div class="doc"><p>Returns a <a href="https://en.wikipedia.org/wiki/Unit_vector">normalized</a> version of this vector.</p>
-</div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="toVec3-fffff9c8"><a link="extensions.html#toVec3-fffff9c8" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#toVec3-fffff9c8" class="documentableName ">toVec3</a><span>(<span t="k">implicit </span><span t="k"></span>evidence$1: <span data-unresolved-link="" t="t">Numeric</span>[<span data-unresolved-link="" t="t">A</span>]): (<span data-unresolved-link="" t="t">Int</span>, <span data-unresolved-link="" t="t">Int</span>, <span data-unresolved-link="" t="t">Int</span>)</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div></div><div><span class="groupHeader"><span t="k">extension </span>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>](xs: <span data-unresolved-link="" t="t">Seq</span>[<span data-unresolved-link="" t="t">A</span>])</span><div class="documentableElement" id="average-fffff664"><a link="extensions.html#average-fffff664" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#average-fffff664" class="documentableName ">average</a><span>(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="t">Numeric</span>[<span data-unresolved-link="" t="t">A</span>]): <span data-unresolved-link="" t="t">Double</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="median-f60"><a link="extensions.html#median-f60" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#median-f60" class="documentableName ">median</a><span>(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="t">Numeric</span>[<span data-unresolved-link="" t="t">A</span>], <span t="k"></span><span data-unresolved-link="" t="t">Ordering</span>[<span data-unresolved-link="" t="t">A</span>]): <span data-unresolved-link="" t="t">Double</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"></div><div class="cover"><div class="doc"></div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="reshape-da9"><a link="extensions.html#reshape-da9" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#reshape-da9" class="documentableName ">reshape</a><span>(<span t="k"></span><span t="k"></span>height: <span data-unresolved-link="" t="t">Int</span>, <span t="k"></span>width: <span data-unresolved-link="" t="t">Int</span>): <a href="classes/Matrix.html" t="t">Matrix</a>[<span data-unresolved-link="" t="t">A</span>]</span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"><p>Reshapes this sequence into a <a href="classes/Matrix.html">problemutils.classes.Matrix</a> of the given width and height.</p>
-</div><div class="cover"><div class="doc"><p>Reshapes this sequence into a <a href="classes/Matrix.html">problemutils.classes.Matrix</a> of the given width and height.</p>
-</div><dl class="attributes"></dl></div></div></div></div></div><div class="documentableElement" id="rms-fffff664"><a link="extensions.html#rms-fffff664" class="documentableAnchor"></a><div><span class="annotations monospace"></span></div><div class="header monospace"><div class="signature"><span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#rms-fffff664" class="documentableName ">rms</a><span>(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="t">Numeric</span>[<span data-unresolved-link="" t="t">A</span>]): <span data-unresolved-link="" t="t">Double</span></span></div></div><div class="docs"><span class="modifiers"></span><div><div class="originInfo"></div><div class="memberDocumentation"><div class="documentableBrief doc"><p>Computes the root mean square of this sequence.</p>
-</div><div class="cover"><div class="doc"><p>Computes the <a href="https://en.wikipedia.org/wiki/Root_mean_square">root mean square</a> of this sequence.</p>
-</div><dl class="attributes"></dl></div></div></div></div></div></div></div></div></div></div></div></div></div></main><footer><div id="generated-by"><span class="footer-text">Generated by</span><a href="https://github.com/lampepfl/dotty/tree/main/scaladoc"><img src="../images/scaladoc_logo.svg" alt="scaladoc" class="scaladoc_logo"></img><img src="../images/scaladoc_logo_dark.svg" alt="scaladoc" class="scaladoc_logo_dark"></img></a></div><div class="socials"><span class="footer-text"></span></div><div class="mode"><span class="footer-text">Mode</span><label id="theme-toggle" class="switch"><input type="checkbox"></input><span class="slider"></span></label></div><span class="go-to-top-icon"><a href="#container"><span class="icon-vertical_align_top"></span><span class="footer-text">Back to top</span></a></span></footer></div></div></body></html>
+<html data-pathToRoot="../"><head><meta charset="utf-8"></meta><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta><title>problemutils.extensions</title><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico"></link><script type="text/javascript" src="../scripts/theme.js"></script><script type="text/javascript" src="../scripts/searchData.js" defer="true"></script><script type="text/javascript" src="../scripts/scastieConfiguration.js" defer="true"></script><link rel="stylesheet" href="../styles/theme/bundle.css"></link><link rel="stylesheet" href="../styles/theme/components/bundle.css"></link><link rel="stylesheet" href="../styles/theme/components/button/bundle.css"></link><link rel="stylesheet" href="../styles/theme/layout/bundle.css"></link><link rel="stylesheet" href="../styles/nord-light.css"></link><link rel="stylesheet" href="../styles/dotty-icons.css"></link><link rel="stylesheet" href="../styles/filter-bar.css"></link><link rel="stylesheet" href="../styles/code-snippets.css"></link><link rel="stylesheet" href="../styles/searchbar.css"></link><link rel="stylesheet" href="../styles/social-links.css"></link><link rel="stylesheet" href="../styles/versions-dropdown.css"></link><link rel="stylesheet" href="../styles/content-contributors.css"></link><link rel="stylesheet" href="../styles/fontawesome.css"></link><script type="text/javascript" src="../hljs/highlight.pack.js" defer="true"></script><script type="text/javascript" src="../scripts/hljs-scala3.js" defer="true"></script><script type="text/javascript" src="../scripts/ux.js" defer="true"></script><script type="text/javascript" src="../scripts/common/component.js" defer="true"></script><script type="text/javascript" src="../scripts/common/utils.js" defer="true"></script><script type="text/javascript" src="../scripts/components/FilterBar.js" defer="true"></script><script type="text/javascript" src="../scripts/components/DocumentableList.js" defer="true"></script><script type="text/javascript" src="../scripts/components/Input.js" defer="true"></script><script type="text/javascript" src="../scripts/components/FilterGroup.js" defer="true"></script><script type="text/javascript" src="../scripts/components/Filter.js" defer="true"></script><script type="text/javascript" src="../scripts/scaladoc-scalajs.js" defer="true"></script><script type="text/javascript" src="../scripts/contributors.js" defer="true"></script><script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js" defer="true"></script><script type="text/javascript" src="https://d3js.org/d3.v6.min.js" defer="true"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/graphlib-dot@0.6.2/dist/graphlib-dot.min.js" defer="true"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dagre-d3/0.6.1/dagre-d3.min.js" defer="true"></script><script type="text/javascript" src="https://scastie.scala-lang.org/embedded.js" defer="true"></script><script type="text/javascript" src="../scripts/data.js" defer="true"></script><link rel="stylesheet" href="../styles/apistyles.css"></link><script>var pathToRoot = "../";</script></head><body><div id=""><div id="header" class="body-small"><div class="header-container-left"><a href="../" class="logo-container"><span class="project-name h300">ProblemUtils</span></a><span onclick="dropdownHandler(event)" class="text-button with-arrow" id="dropdown-trigger"><a></a></span><div id="version-dropdown" class="dropdown-menu"></div></div><div class="header-container-right"><button id="search-toggle" class="icon-button"></button><span id="theme-toggle" class="icon-button"></span><span id="mobile-menu-toggle" class="icon-button hamburger"></span></div></div><div id="mobile-menu"><div class="mobile-menu-header body-small"><span class="mobile-menu-logo"><span class="project-name h300">ProblemUtils</span></span><button id="mobile-menu-close" class="icon-button close"></button></div><div class="mobile-menu-container body-medium"><input id="mobile-scaladoc-searchbar-input" class="scaladoc-searchbar-input" type="search" placeholder="Find anything"></input><span id="mobile-theme-toggle" class="mobile-menu-item mode"></span></div></div><span id="mobile-sidebar-toggle" class="floating-button"></span><div id="leftColumn" class="body-small"><div class="switcher-container"><a id="api-nav-button" class="switcher h100 selected" href="../index.html">API</a></div><nav id="api-nav" class="side-menu"><div class="ni n0 expanded"><span class="nh h100 expanded cs"><button class="ar icon-button expanded"></button><a href="../problemutils.html"><span class="micon pa"></span><span>problemutils</span></a></span><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="classes.html"><span class="micon pa"></span><span>classes</span></a></span><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="classes/graphs.html"><span class="micon pa"></span><span>graphs</span></a></span><div class="ni n3 "><span class="nh "><a href="classes/graphs/DisjointSets.html"><span class="micon cl"></span><span>DisjointSets</span></a></span></div><div class="ni n3 "><span class="nh "><a href="classes/graphs/DisjointSets$.html"><span class="micon ob"></span><span>DisjointSets</span></a></span></div><div class="ni n3 "><span class="nh "><a href="classes/graphs/DynamicGraph.html"><span class="micon tr"></span><span>DynamicGraph</span></a></span></div><div class="ni n3 "><span class="nh "><a href="classes/graphs/Edge.html"><span class="micon cl"></span><span>Edge</span></a></span></div><div class="ni n3 "><span class="nh "><a href="classes/graphs/FiniteGraph.html"><span class="micon cl"></span><span>FiniteGraph</span></a></span></div><div class="ni n3 "><span class="nh "><a href="classes/graphs/FiniteGraph$.html"><span class="micon ob"></span><span>FiniteGraph</span></a></span></div><div class="ni n3 "><span class="nh "><a href="classes/graphs/Graph.html"><span class="micon tr"></span><span>Graph</span></a></span></div><div class="ni n3 "><span class="nh "><a href="classes/graphs/Graph$.html"><span class="micon ob"></span><span>Graph</span></a></span></div><div class="ni n3 "><span class="nh "><a href="classes/graphs/LazyGraph.html"><span class="micon cl"></span><span>LazyGraph</span></a></span></div><div class="ni n3 "><span class="nh "><a href="classes/graphs/LazyGraph$.html"><span class="micon ob"></span><span>LazyGraph</span></a></span></div><div class="ni n3 "><span class="nh "><a href="classes/graphs/Path.html"><span class="micon cl"></span><span>Path</span></a></span></div><div class="ni n3 "><span class="nh "><a href="classes/graphs/ProceduralGraph.html"><span class="micon cl"></span><span>ProceduralGraph</span></a></span></div><div class="ni n3 "><span class="nh "><a href="classes/graphs/ProceduralGraph$.html"><span class="micon ob"></span><span>ProceduralGraph</span></a></span></div><div class="ni n3 "><span class="nh "><a href="classes/graphs/Tree.html"><span class="micon cl"></span><span>Tree</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="classes/Cardinal.html"><span class="micon en"></span><span>Cardinal</span></a></span></div><div class="ni n2 "><span class="nh "><a href="classes/Hex.html"><span class="micon en"></span><span>Hex</span></a></span></div><div class="ni n2 "><span class="nh "><a href="classes/Matrix.html"><span class="micon cl"></span><span>Matrix</span></a></span></div><div class="ni n2 "><span class="nh "><a href="classes/Matrix$.html"><span class="micon ob"></span><span>Matrix</span></a></span></div></div><div class="ni n1 expanded"><span class="nh h100 selected"><a href="#"><span class="micon pa"></span><span>extensions</span></a></span></div></div></nav></div><div id="footer" class="body-small"><div class="left-container">Generated with</div><div class="right-container"><div class="text"></div></div><div class="text-mobile"></div></div><div id="scaladoc-searchBar"></div><div id="main"><div class="breadcrumbs container"><a href="../index.html">ProblemUtils</a>/<a href="../problemutils.html">problemutils</a>/<a href="extensions.html">problemutils.extensions</a></div><div id="content" class="body-medium"><div><div class="cover-header">
+ <span class="icon"><span class="micon pa"></span></span>
+ <h1 class="h600 single">problemutils.extensions</h1>
+</div>
+<div class="fqname body-large">
+ <span></span>
+</div>
+<div class="main-signature mono-small-block">
+ <div class="signature">
+  <span class="modifiers"></span><span class="kind"><span t="k">package </span></span><a href="extensions.html" t="n" class="documentableName ">problemutils.extensions</a>
+ </div>
+</div>
+<section id="members-list">
+ <h2 class="h500">Members list</h2>
+ <div class="documentableFilter">
+  <div class="filtersContainer"></div>
+  <input class="filterableInput" placeholder="Filter by any phrase" data-test-id="filterBarInput" type="search"><button class="clearButton label-only-button" data-test-id="filterBarClearButton">Clear all</button>
+ </div>
+ <div class="membersList expand">
+  <div class="tabs">
+   <div class="contents">
+    <section id="Value-members">
+     <div data-togglable="Value members" class="tab expand">
+      <div class="member-group-header">
+       <h3 data-togglable="Value members" class="h400">Value members</h3>
+      </div>
+      <section id="Concrete-methods">
+       <div class="documentableList expand">
+        <div class="documentableList-expander">
+         <button class="icon-button show-content expand"></button>
+         <h4 class="groupHeader h200">Concrete methods</h4>
+        </div>
+        <div class="documentableElement" id="fst-5f7">
+         <div class="documentableElement-expander">
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#fst-5f7" t="n" class="documentableName ">fst</a>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>, <span t="k"></span><span data-unresolved-link="" t="t">B</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">tup</span>: (<span t="t">A</span>, <span t="t">B</span>)): <span data-unresolved-link="" t="t">A</span>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="snd-5f7">
+         <div class="documentableElement-expander">
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#snd-5f7" t="n" class="documentableName ">snd</a>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>, <span t="k"></span><span data-unresolved-link="" t="t">B</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">tup</span>: (<span t="t">A</span>, <span t="t">B</span>)): <span data-unresolved-link="" t="t">B</span>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </section>
+     </div>
+    </section>
+    <section id="Extensions">
+     <div data-togglable="Extensions" class="tab expand">
+      <div class="member-group-header">
+       <h3 data-togglable="Extensions" class="h400">Extensions</h3>
+      </div>
+      <section id="Extensions">
+       <div class="documentableList expand">
+        <div class="documentableList-expander">
+         <button class="icon-button show-content expand"></button>
+         <h4 class="groupHeader h200">Extensions</h4>
+        </div>
+        <div>
+         <span class="groupHeader"><span t="k">extension </span>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>](a: <span data-unresolved-link="" t="t">A</span>)(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">a</span>: <span t="t">A</span>)</span>
+         <div class="documentableElement" id="converge-be0">
+          <div class="documentableElement-expander">
+           <button class="icon-button ar show-content"></button>
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#converge-be0" t="n" class="documentableName ">converge</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">f</span>: <span data-unresolved-link="" t="t">A</span><span t="k"> =&gt; </span><span data-unresolved-link="" t="t">A</span>): <span data-unresolved-link="" t="t">A</span>
+            </div>
+           </div>
+          </div>
+          <div class="docs">
+           <span class="modifiers"></span>
+           <div>
+            <div class="originInfo"></div>
+            <div class="memberDocumentation">
+             <div class="documentableBrief doc">
+              <p>Recursively applies a function <code>f: A =&gt; A</code> on any object <code>a</code> until <code>f(a)</code> is equal to <code>a</code>.</p> 
+             </div>
+             <div class="cover">
+              <div class="doc">
+               <p>Recursively applies a function <code>f: A =&gt; A</code> on any object <code>a</code> until <code>f(a)</code> is equal to <code>a</code>.</p> 
+              </div>
+              <h2 class="h200">Attributes</h2>
+              <dl class="attributes attributes-small"></dl>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="doUntil-637">
+          <div class="documentableElement-expander">
+           <button class="icon-button ar show-content"></button>
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#doUntil-637" t="n" class="documentableName ">doUntil</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">f</span>: <span data-unresolved-link="" t="t">A</span><span t="k"> =&gt; </span><span data-unresolved-link="" t="t">A</span>)(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">p</span>: <span data-unresolved-link="" t="t">A</span><span t="k"> =&gt; </span><span data-unresolved-link="" t="t">Boolean</span>): <span data-unresolved-link="" t="t">A</span>
+            </div>
+           </div>
+          </div>
+          <div class="docs">
+           <span class="modifiers"></span>
+           <div>
+            <div class="originInfo"></div>
+            <div class="memberDocumentation">
+             <div class="documentableBrief doc">
+              <p>Recursively applies a function <code>f: A =&gt; A</code> on any object <code>a</code> until the predicate <code>p</code> is satisfied.</p> 
+             </div>
+             <div class="cover">
+              <div class="doc">
+               <p>Recursively applies a function <code>f: A =&gt; A</code> on any object <code>a</code> until the predicate <code>p</code> is satisfied.</p> 
+              </div>
+              <h2 class="h200">Attributes</h2>
+              <dl class="attributes attributes-small"></dl>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="expand-fffff1bb">
+          <div class="documentableElement-expander">
+           <button class="icon-button ar show-content"></button>
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#expand-fffff1bb" t="n" class="documentableName ">expand</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">f</span>: <span data-unresolved-link="" t="t">A</span><span t="k"> =&gt; </span><span data-unresolved-link="" t="t">IterableOnce</span>[<span data-unresolved-link="" t="t">A</span>]): <span data-unresolved-link="" t="t">Set</span>[<span data-unresolved-link="" t="t">A</span>]
+            </div>
+           </div>
+          </div>
+          <div class="docs">
+           <span class="modifiers"></span>
+           <div>
+            <div class="originInfo"></div>
+            <div class="memberDocumentation">
+             <div class="documentableBrief doc">
+              <p>Returns a set of all elements reachable from the starting point <code>a</code> using a "neighbour function" <code>f: A =&gt; IterableOnce[A]</code>.</p> 
+             </div>
+             <div class="cover">
+              <div class="doc">
+               <p>Returns a set of all elements reachable from the starting point <code>a</code> using a "neighbour function" <code>f: A =&gt; IterableOnce[A]</code>.</p> 
+              </div>
+              <h2 class="h200">Attributes</h2>
+              <dl class="attributes attributes-small"></dl>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="iterate-ffffff0d">
+          <div class="documentableElement-expander">
+           <button class="icon-button ar show-content"></button>
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#iterate-ffffff0d" t="n" class="documentableName ">iterate</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">f</span>: <span data-unresolved-link="" t="t">A</span><span t="k"> =&gt; </span><span data-unresolved-link="" t="t">A</span>)(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">n</span>: <span data-unresolved-link="" t="t">Int</span>): <span data-unresolved-link="" t="t">A</span>
+            </div>
+           </div>
+          </div>
+          <div class="docs">
+           <span class="modifiers"></span>
+           <div>
+            <div class="originInfo"></div>
+            <div class="memberDocumentation">
+             <div class="documentableBrief doc">
+              <p>Applies any function <code>A =&gt; A</code> on any object <code>n</code> times. If <code>n</code> is less than or equal to 0, the original object is returned without function application.</p> 
+             </div>
+             <div class="cover">
+              <div class="doc">
+               <p>Applies any function <code>A =&gt; A</code> on any object <code>n</code> times. If <code>n</code> is less than or equal to 0, the original object is returned without function application.</p> 
+              </div>
+              <h2 class="h200">Attributes</h2>
+              <dl class="attributes attributes-small"></dl>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="pipe-fffffd97">
+          <div class="documentableElement-expander">
+           <button class="icon-button ar show-content"></button>
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#pipe-fffffd97" t="n" class="documentableName ">pipe</a>[<span t="k"></span><span data-unresolved-link="" t="t">B</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">f</span>: <span data-unresolved-link="" t="t">A</span><span t="k"> =&gt; </span><span data-unresolved-link="" t="t">B</span>): <span data-unresolved-link="" t="t">B</span>
+            </div>
+           </div>
+          </div>
+          <div class="docs">
+           <span class="modifiers"></span>
+           <div>
+            <div class="originInfo"></div>
+            <div class="memberDocumentation">
+             <div class="documentableBrief doc">
+              <p>Applies any function <code>A =&gt; B</code> on any object <code>a</code> and then returns the result.</p> 
+             </div>
+             <div class="cover">
+              <div class="doc">
+               <p>Applies any function <code>A =&gt; B</code> on any object <code>a</code> and then returns the result.</p> 
+              </div>
+              <h2 class="h200">Attributes</h2>
+              <dl class="attributes attributes-small"></dl>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="tap-be0">
+          <div class="documentableElement-expander">
+           <button class="icon-button ar show-content"></button>
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#tap-be0" t="n" class="documentableName ">tap</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">f</span>: <span data-unresolved-link="" t="t">A</span><span t="k"> =&gt; </span><span data-unresolved-link="" t="t">Unit</span>): <span data-unresolved-link="" t="t">A</span>
+            </div>
+           </div>
+          </div>
+          <div class="docs">
+           <span class="modifiers"></span>
+           <div>
+            <div class="originInfo"></div>
+            <div class="memberDocumentation">
+             <div class="documentableBrief doc">
+              <p>Applies any function <code>A =&gt; Unit</code> on any object <code>a</code> and then returns the object without modifying it.</p> 
+             </div>
+             <div class="cover">
+              <div class="doc">
+               <p>Applies any function <code>A =&gt; Unit</code> on any object <code>a</code> and then returns the object without modifying it.</p> 
+              </div>
+              <h2 class="h200">Attributes</h2>
+              <dl class="attributes attributes-small"></dl>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div>
+         <span class="groupHeader"><span t="k">extension </span>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>](a: <span data-unresolved-link="" t="t">A</span>)(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">a</span>: <span t="t">A</span>)</span>
+         <div class="documentableElement" id="getType-fffff404">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#getType-fffff404" t="n" class="documentableName ">getType</a>(<span t="k">implicit </span><span t="k"></span><span data-unresolved-link="" t="n">ct</span>: <span data-unresolved-link="" t="t">ClassTag</span>[<span data-unresolved-link="" t="t">A</span>]): <span data-unresolved-link="" t="t">String</span>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="lg-957">
+          <div class="documentableElement-expander">
+           <button class="icon-button ar show-content"></button>
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#lg-957" t="n" class="documentableName ">lg</a>: <span data-unresolved-link="" t="t">A</span>
+            </div>
+           </div>
+          </div>
+          <div class="docs">
+           <span class="modifiers"></span>
+           <div>
+            <div class="originInfo"></div>
+            <div class="memberDocumentation">
+             <div class="documentableBrief doc">
+              <p>Logs any object <code>a</code> in the console without the "[*]" prefix and then returns the object without modifying it.</p> 
+             </div>
+             <div class="cover">
+              <div class="doc">
+               <p>Logs any object <code>a</code> in the console without the "[*]" prefix and then returns the object without modifying it.</p> 
+              </div>
+              <h2 class="h200">Attributes</h2>
+              <dl class="attributes attributes-small"></dl>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="log-957">
+          <div class="documentableElement-expander">
+           <button class="icon-button ar show-content"></button>
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#log-957" t="n" class="documentableName ">log</a>: <span data-unresolved-link="" t="t">A</span>
+            </div>
+           </div>
+          </div>
+          <div class="docs">
+           <span class="modifiers"></span>
+           <div>
+            <div class="originInfo"></div>
+            <div class="memberDocumentation">
+             <div class="documentableBrief doc">
+              <p>Logs any object <code>a</code> in the console and then returns the object without modifying it.</p> 
+             </div>
+             <div class="cover">
+              <div class="doc">
+               <p>Logs any object <code>a</code> in the console and then returns the object without modifying it.</p> 
+              </div>
+              <h2 class="h200">Attributes</h2>
+              <dl class="attributes attributes-small"></dl>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="logAttr-fffffd97">
+          <div class="documentableElement-expander">
+           <button class="icon-button ar show-content"></button>
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#logAttr-fffffd97" t="n" class="documentableName ">logAttr</a>[<span t="k"></span><span data-unresolved-link="" t="t">B</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">f</span>: <span data-unresolved-link="" t="t">A</span><span t="k"> =&gt; </span><span data-unresolved-link="" t="t">B</span>): <span data-unresolved-link="" t="t">A</span>
+            </div>
+           </div>
+          </div>
+          <div class="docs">
+           <span class="modifiers"></span>
+           <div>
+            <div class="originInfo"></div>
+            <div class="memberDocumentation">
+             <div class="documentableBrief doc">
+              <p>Logs any attribute of object <code>a</code> in the console and then returns the object without modifying it.</p> 
+             </div>
+             <div class="cover">
+              <div class="doc">
+               <p>Logs any attribute of object <code>a</code> in the console and then returns the object without modifying it.</p> 
+              </div>
+              <h2 class="h200">Attributes</h2>
+              <dl class="attributes attributes-small"></dl>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="logAttrIf-fa0">
+          <div class="documentableElement-expander">
+           <button class="icon-button ar show-content"></button>
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#logAttrIf-fa0" t="n" class="documentableName ">logAttrIf</a>[<span t="k"></span><span data-unresolved-link="" t="t">B</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">f</span>: <span data-unresolved-link="" t="t">A</span><span t="k"> =&gt; </span><span data-unresolved-link="" t="t">B</span>)(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">p</span>: <span data-unresolved-link="" t="t">B</span><span t="k"> =&gt; </span><span data-unresolved-link="" t="t">Boolean</span>): <span data-unresolved-link="" t="t">A</span>
+            </div>
+           </div>
+          </div>
+          <div class="docs">
+           <span class="modifiers"></span>
+           <div>
+            <div class="originInfo"></div>
+            <div class="memberDocumentation">
+             <div class="documentableBrief doc">
+              <p>Logs any attribute of object <code>a</code> in the console <em>if</em> the condition <code>p</code> is satisfied and then returns the object without modifying it.</p> 
+             </div>
+             <div class="cover">
+              <div class="doc">
+               <p>Logs any attribute of object <code>a</code> in the console <em>if</em> the condition <code>p</code> is satisfied and then returns the object without modifying it.</p> 
+              </div>
+              <h2 class="h200">Attributes</h2>
+              <dl class="attributes attributes-small"></dl>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="logCol-dbc">
+          <div class="documentableElement-expander">
+           <button class="icon-button ar show-content"></button>
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#logCol-dbc" t="n" class="documentableName ">logCol</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">color</span>: <span data-unresolved-link="" t="t">String</span>): <span data-unresolved-link="" t="t">A</span>
+            </div>
+           </div>
+          </div>
+          <div class="docs">
+           <span class="modifiers"></span>
+           <div>
+            <div class="originInfo"></div>
+            <div class="memberDocumentation">
+             <div class="documentableBrief doc">
+              <p>Similar to <code>log</code>, but takes a color parameter.</p> 
+             </div>
+             <div class="cover">
+              <div class="doc">
+               <p>Similar to <code>log</code>, but takes a color parameter.</p> 
+              </div>
+              <h2 class="h200">Attributes</h2>
+              <dl class="attributes attributes-small"></dl>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="logIf-be0">
+          <div class="documentableElement-expander">
+           <button class="icon-button ar show-content"></button>
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#logIf-be0" t="n" class="documentableName ">logIf</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">p</span>: <span data-unresolved-link="" t="t">A</span><span t="k"> =&gt; </span><span data-unresolved-link="" t="t">Boolean</span>): <span data-unresolved-link="" t="t">A</span>
+            </div>
+           </div>
+          </div>
+          <div class="docs">
+           <span class="modifiers"></span>
+           <div>
+            <div class="originInfo"></div>
+            <div class="memberDocumentation">
+             <div class="documentableBrief doc">
+              <p>Logs any object <code>a</code> in the console <em>if</em> the condition <code>p</code> is satisfied and then returns the object without modifying it.</p> 
+             </div>
+             <div class="cover">
+              <div class="doc">
+               <p>Logs any object <code>a</code> in the console <em>if</em> the condition <code>p</code> is satisfied and then returns the object without modifying it.</p> 
+              </div>
+              <h2 class="h200">Attributes</h2>
+              <dl class="attributes attributes-small"></dl>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="space-957">
+          <div class="documentableElement-expander">
+           <button class="icon-button ar show-content"></button>
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#space-957" t="n" class="documentableName ">space</a>: <span data-unresolved-link="" t="t">A</span>
+            </div>
+           </div>
+          </div>
+          <div class="docs">
+           <span class="modifiers"></span>
+           <div>
+            <div class="originInfo"></div>
+            <div class="memberDocumentation">
+             <div class="documentableBrief doc">
+              <p>Prints an empty line in the console and returns the object without modifying it. Useful for debugging.</p> 
+             </div>
+             <div class="cover">
+              <div class="doc">
+               <p>Prints an empty line in the console and returns the object without modifying it. Useful for debugging.</p> 
+              </div>
+              <h2 class="h200">Attributes</h2>
+              <dl class="attributes attributes-small"></dl>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div>
+         <span class="groupHeader"><span t="k">extension </span>[<span t="k"></span><span data-unresolved-link="" t="t">V</span>](a: <span data-unresolved-link="" t="t">V</span>)(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">a</span>: <span t="t">V</span>)</span>
+         <div class="documentableElement" id="->>-fffffe59">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#->>-fffffe59" t="n" class="documentableName ">-&gt;&gt;</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">b</span>: <span data-unresolved-link="" t="t">V</span>): <a href="classes/graphs/Edge.html" t="t">Edge</a>[<span data-unresolved-link="" t="t">V</span>]
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div>
+         <span class="groupHeader"><span t="k">extension </span>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>, <span t="k"></span><span data-unresolved-link="" t="t">B</span>](map: <span data-unresolved-link="" t="t">Map</span>[<span data-unresolved-link="" t="t">A</span>, <span data-unresolved-link="" t="t">B</span>])(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">map</span>: <span data-unresolved-link="" t="t">Map</span>[<span t="t">A</span>, <span t="t">B</span>])</span>
+         <div class="documentableElement" id="invert-982">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#invert-982" t="n" class="documentableName ">invert</a>: <span data-unresolved-link="" t="t">Map</span>[<span data-unresolved-link="" t="t">B</span>, <span data-unresolved-link="" t="t">Set</span>[<span data-unresolved-link="" t="t">A</span>]]
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div>
+         <span class="groupHeader"><span t="k">extension </span>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>](mat: <a href="classes/Matrix.html" t="t">Matrix</a>[<a href="classes/Matrix.html" t="t">Matrix</a>[<span data-unresolved-link="" t="t">A</span>]])(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">mat</span>: <a href="classes/Matrix.html" t="t">Matrix</a>[<a href="classes/Matrix.html" t="t">Matrix</a>[<span t="t">A</span>]])</span>
+         <div class="documentableElement" id="flatten-251">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#flatten-251" t="n" class="documentableName ">flatten</a>: <a href="classes/Matrix.html" t="t">Matrix</a>[<span data-unresolved-link="" t="t">A</span>]
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div>
+         <span class="groupHeader"><span t="k">extension </span>(p: <span data-unresolved-link="" t="t">Boolean</span>)(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">p</span>: <span data-unresolved-link="" t="t">Boolean</span>)</span>
+         <div class="documentableElement" id="toInt-3c7">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#toInt-3c7" t="n" class="documentableName ">toInt</a>: <span data-unresolved-link="" t="t">Int</span>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div>
+         <span class="groupHeader"><span t="k">extension </span>(p: <span data-unresolved-link="" t="t">Int</span>)(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">p</span>: <span data-unresolved-link="" t="t">Int</span>)</span>
+         <div class="documentableElement" id="toBoolean-ffffff99">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#toBoolean-ffffff99" t="n" class="documentableName ">toBoolean</a>: <span data-unresolved-link="" t="t">Boolean</span>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div>
+         <span class="groupHeader"><span t="k">extension </span>(str: <span data-unresolved-link="" t="t">String</span>)(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">str</span>: <span data-unresolved-link="" t="t">String</span>)</span>
+         <div class="documentableElement" id="findAllMatchWith-fffff048">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#findAllMatchWith-fffff048" t="n" class="documentableName ">findAllMatchWith</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">regex</span>: <span data-unresolved-link="" t="t">String</span>): <span data-unresolved-link="" t="t">List</span>[<span data-unresolved-link="" t="t">Match</span>]
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="findAllWith-fffff048">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#findAllWith-fffff048" t="n" class="documentableName ">findAllWith</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">regex</span>: <span data-unresolved-link="" t="t">String</span>): <span data-unresolved-link="" t="t">List</span>[<span data-unresolved-link="" t="t">String</span>]
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="findMatchWith-fffffa07">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#findMatchWith-fffffa07" t="n" class="documentableName ">findMatchWith</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">regex</span>: <span data-unresolved-link="" t="t">String</span>): <span data-unresolved-link="" t="t">Option</span>[<span data-unresolved-link="" t="t">Match</span>]
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="findWith-fffffa07">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#findWith-fffffa07" t="n" class="documentableName ">findWith</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">regex</span>: <span data-unresolved-link="" t="t">String</span>): <span data-unresolved-link="" t="t">Option</span>[<span data-unresolved-link="" t="t">String</span>]
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="padLeftTo-165">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#padLeftTo-165" t="n" class="documentableName ">padLeftTo</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">n</span>: <span data-unresolved-link="" t="t">Int</span>, <span t="k"></span><span data-unresolved-link="" t="n">char</span>: <span data-unresolved-link="" t="t">Char</span>): <span data-unresolved-link="" t="t">String</span>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="rows-94d">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#rows-94d" t="n" class="documentableName ">rows</a>: <span data-unresolved-link="" t="t">List</span>[<span data-unresolved-link="" t="t">String</span>]
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="words-94d">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#words-94d" t="n" class="documentableName ">words</a>: <span data-unresolved-link="" t="t">List</span>[<span data-unresolved-link="" t="t">String</span>]
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div>
+         <span class="groupHeader"><span t="k">extension </span>(tup: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>)(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">tup</span>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>)</span>
+         <div class="documentableElement" id="%-fffffc96">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#%-fffffc96" t="n" class="documentableName ">%</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">other</span>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>): (<span data-unresolved-link="" t="t">Int</span>, <span data-unresolved-link="" t="t">Int</span>)
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="+-fffffc96">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#+-fffffc96" t="n" class="documentableName ">+</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">other</span>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>): (<span data-unresolved-link="" t="t">Int</span>, <span data-unresolved-link="" t="t">Int</span>)
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="--fffffc96">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#--fffffc96" t="n" class="documentableName ">-</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">other</span>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>): (<span data-unresolved-link="" t="t">Int</span>, <span data-unresolved-link="" t="t">Int</span>)
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="col-fffff835">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#col-fffff835" t="n" class="documentableName ">col</a>: <span data-unresolved-link="" t="t">Int</span>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="distance-fffff6fd">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#distance-fffff6fd" t="n" class="documentableName ">distance</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">other</span>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>): <span data-unresolved-link="" t="t">Double</span>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="dl-364">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#dl-364" t="n" class="documentableName ">dl</a>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="down-364">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#down-364" t="n" class="documentableName ">down</a>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="dr-364">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#dr-364" t="n" class="documentableName ">dr</a>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="left-364">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#left-364" t="n" class="documentableName ">left</a>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="manhattan-c43">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#manhattan-c43" t="n" class="documentableName ">manhattan</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">other</span>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>): <span data-unresolved-link="" t="t">Int</span>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="move-744">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#move-744" t="n" class="documentableName ">move</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">dir</span>: <a href="../problemutils.html#Cardinal-0" t="t">Cardinal</a>): <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="neighbours-6e0">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#neighbours-6e0" t="n" class="documentableName ">neighbours</a>: <span data-unresolved-link="" t="t">List</span>[<a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>]
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="neighboursDiag-6e0">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#neighboursDiag-6e0" t="n" class="documentableName ">neighboursDiag</a>: <span data-unresolved-link="" t="t">List</span>[<a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>]
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="neighboursDiagIn-fffffb8c">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#neighboursDiagIn-fffffb8c" t="n" class="documentableName ">neighboursDiagIn</a>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>](<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">mat</span>: <a href="classes/Matrix.html" t="t">Matrix</a>[<span data-unresolved-link="" t="t">A</span>]): <span data-unresolved-link="" t="t">List</span>[<span data-unresolved-link="" t="t">A</span>]
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="neighboursIn-fffffb8c">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#neighboursIn-fffffb8c" t="n" class="documentableName ">neighboursIn</a>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>](<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">mat</span>: <a href="classes/Matrix.html" t="t">Matrix</a>[<span data-unresolved-link="" t="t">A</span>]): <span data-unresolved-link="" t="t">List</span>[<span data-unresolved-link="" t="t">A</span>]
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="neighboursOrth-6e0">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#neighboursOrth-6e0" t="n" class="documentableName ">neighboursOrth</a>: <span data-unresolved-link="" t="t">List</span>[<a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>]
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="neighboursOrthIn-fffffb8c">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#neighboursOrthIn-fffffb8c" t="n" class="documentableName ">neighboursOrthIn</a>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>](<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">mat</span>: <a href="classes/Matrix.html" t="t">Matrix</a>[<span data-unresolved-link="" t="t">A</span>]): <span data-unresolved-link="" t="t">List</span>[<span data-unresolved-link="" t="t">A</span>]
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="right-364">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#right-364" t="n" class="documentableName ">right</a>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="row-fffff835">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#row-fffff835" t="n" class="documentableName ">row</a>: <span data-unresolved-link="" t="t">Int</span>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="toVector-ffffff05">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#toVector-ffffff05" t="n" class="documentableName ">toVector</a>: <span data-unresolved-link="" t="t">Vector</span>[<span data-unresolved-link="" t="t">Int</span>]
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="transpose-364">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#transpose-364" t="n" class="documentableName ">transpose</a>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="ul-364">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#ul-364" t="n" class="documentableName ">ul</a>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="up-364">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#up-364" t="n" class="documentableName ">up</a>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="ur-364">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#ur-364" t="n" class="documentableName ">ur</a>: <a href="../problemutils.html#Pos2D-0" t="t">Pos2D</a>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="x-fffff835">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#x-fffff835" t="n" class="documentableName ">x</a>: <span data-unresolved-link="" t="t">Int</span>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="y-fffff835">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#y-fffff835" t="n" class="documentableName ">y</a>: <span data-unresolved-link="" t="t">Int</span>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div>
+         <span class="groupHeader"><span t="k">extension </span>(v: <a href="../problemutils.html#Pos3D-0" t="t">Pos3D</a>)(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">v</span>: <a href="../problemutils.html#Pos3D-0" t="t">Pos3D</a>)</span>
+         <div class="documentableElement" id="+-19">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#+-19" t="n" class="documentableName ">+</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">other</span>: <a href="../problemutils.html#Pos3D-0" t="t">Pos3D</a>): (<span data-unresolved-link="" t="t">Int</span>, <span data-unresolved-link="" t="t">Int</span>, <span data-unresolved-link="" t="t">Int</span>)
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="--19">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#--19" t="n" class="documentableName ">-</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">other</span>: <a href="../problemutils.html#Pos3D-0" t="t">Pos3D</a>): (<span data-unresolved-link="" t="t">Int</span>, <span data-unresolved-link="" t="t">Int</span>, <span data-unresolved-link="" t="t">Int</span>)
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="distance-a7f">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#distance-a7f" t="n" class="documentableName ">distance</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">other</span>: <a href="../problemutils.html#Pos3D-0" t="t">Pos3D</a>): <span data-unresolved-link="" t="t">Double</span>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="down-9e6">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#down-9e6" t="n" class="documentableName ">down</a>: <a href="../problemutils.html#Pos3D-0" t="t">Pos3D</a>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="in-9e6">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#in-9e6" t="n" class="documentableName ">in</a>: <a href="../problemutils.html#Pos3D-0" t="t">Pos3D</a>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="left-9e6">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#left-9e6" t="n" class="documentableName ">left</a>: <a href="../problemutils.html#Pos3D-0" t="t">Pos3D</a>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="manhattan-fffff801">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#manhattan-fffff801" t="n" class="documentableName ">manhattan</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">other</span>: <a href="../problemutils.html#Pos3D-0" t="t">Pos3D</a>): <span data-unresolved-link="" t="t">Int</span>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="move-fffff51d">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#move-fffff51d" t="n" class="documentableName ">move</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">dir</span>: <a href="../problemutils.html#Hex-0" t="t">Hex</a>): (<span data-unresolved-link="" t="t">Int</span>, <span data-unresolved-link="" t="t">Int</span>, <span data-unresolved-link="" t="t">Int</span>)
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="out-9e6">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#out-9e6" t="n" class="documentableName ">out</a>: <a href="../problemutils.html#Pos3D-0" t="t">Pos3D</a>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="q-954">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#q-954" t="n" class="documentableName ">q</a>: <span data-unresolved-link="" t="t">Int</span>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="r-954">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#r-954" t="n" class="documentableName ">r</a>: <span data-unresolved-link="" t="t">Int</span>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="right-9e6">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#right-9e6" t="n" class="documentableName ">right</a>: <a href="../problemutils.html#Pos3D-0" t="t">Pos3D</a>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="s-954">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#s-954" t="n" class="documentableName ">s</a>: <span data-unresolved-link="" t="t">Int</span>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="toVector-324">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#toVector-324" t="n" class="documentableName ">toVector</a>: <span data-unresolved-link="" t="t">Vector</span>[<span data-unresolved-link="" t="t">Int</span>]
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="up-9e6">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#up-9e6" t="n" class="documentableName ">up</a>: <a href="../problemutils.html#Pos3D-0" t="t">Pos3D</a>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="x-954">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#x-954" t="n" class="documentableName ">x</a>: <span data-unresolved-link="" t="t">Int</span>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="y-954">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#y-954" t="n" class="documentableName ">y</a>: <span data-unresolved-link="" t="t">Int</span>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="z-954">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#z-954" t="n" class="documentableName ">z</a>: <span data-unresolved-link="" t="t">Int</span>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div>
+         <span class="groupHeader"><span t="k">extension </span>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>](vss: <span data-unresolved-link="" t="t">Seq</span>[<span data-unresolved-link="" t="t">Seq</span>[<span data-unresolved-link="" t="t">A</span>]])(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">vss</span>: <span data-unresolved-link="" t="t">Seq</span>[<span data-unresolved-link="" t="t">Seq</span>[<span t="t">A</span>]])</span>
+         <div class="documentableElement" id="toMatrix-689">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#toMatrix-689" t="n" class="documentableName ">toMatrix</a>: <a href="classes/Matrix.html" t="t">Matrix</a>[<span data-unresolved-link="" t="t">A</span>]
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div>
+         <span class="groupHeader"><span t="k">extension </span>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>](xs: <span data-unresolved-link="" t="t">IterableOnce</span>[<span data-unresolved-link="" t="t">A</span>])(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">xs</span>: <span data-unresolved-link="" t="t">IterableOnce</span>[<span t="t">A</span>])</span>
+         <div class="documentableElement" id="average-ffffff92">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#average-ffffff92" t="n" class="documentableName ">average</a>(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="t">Numeric</span>[<span data-unresolved-link="" t="t">A</span>]): <span data-unresolved-link="" t="t">Double</span>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="median-fffffb72">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#median-fffffb72" t="n" class="documentableName ">median</a>(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="t">Numeric</span>[<span data-unresolved-link="" t="t">A</span>], <span t="k"></span><span data-unresolved-link="" t="t">Ordering</span>[<span data-unresolved-link="" t="t">A</span>]): <span data-unresolved-link="" t="t">Double</span>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="productBy-fffff34c">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#productBy-fffff34c" t="n" class="documentableName ">productBy</a>[<span t="k"></span><span data-unresolved-link="" t="t">B</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">f</span>: <span data-unresolved-link="" t="t">A</span><span t="k"> =&gt; </span><span data-unresolved-link="" t="t">B</span>)(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">num</span>: <span data-unresolved-link="" t="t">Numeric</span>[<span data-unresolved-link="" t="t">B</span>]): <span data-unresolved-link="" t="t">B</span>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="rms-ffffff92">
+          <div class="documentableElement-expander">
+           <button class="icon-button ar show-content"></button>
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#rms-ffffff92" t="n" class="documentableName ">rms</a>(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="t">Numeric</span>[<span data-unresolved-link="" t="t">A</span>]): <span data-unresolved-link="" t="t">Double</span>
+            </div>
+           </div>
+          </div>
+          <div class="docs">
+           <span class="modifiers"></span>
+           <div>
+            <div class="originInfo"></div>
+            <div class="memberDocumentation">
+             <div class="documentableBrief doc">
+              <p>Computes the root mean square of this sequence.</p> 
+             </div>
+             <div class="cover">
+              <div class="doc">
+               <p>Computes the <a href="https://en.wikipedia.org/wiki/Root_mean_square">root mean square</a> of this sequence.</p> 
+              </div>
+              <h2 class="h200">Attributes</h2>
+              <dl class="attributes attributes-small"></dl>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="sumBy-fffff34c">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#sumBy-fffff34c" t="n" class="documentableName ">sumBy</a>[<span t="k"></span><span data-unresolved-link="" t="t">B</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">f</span>: <span data-unresolved-link="" t="t">A</span><span t="k"> =&gt; </span><span data-unresolved-link="" t="t">B</span>)(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">num</span>: <span data-unresolved-link="" t="t">Numeric</span>[<span data-unresolved-link="" t="t">B</span>]): <span data-unresolved-link="" t="t">B</span>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div>
+         <span class="groupHeader"><span t="k">extension </span>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>](xs: <span data-unresolved-link="" t="t">Seq</span>[<span data-unresolved-link="" t="t">A</span>])(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">xs</span>: <span data-unresolved-link="" t="t">Seq</span>[<span t="t">A</span>])</span>
+         <div class="documentableElement" id="reshape-da9">
+          <div class="documentableElement-expander">
+           <button class="icon-button ar show-content"></button>
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#reshape-da9" t="n" class="documentableName ">reshape</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">height</span>: <span data-unresolved-link="" t="t">Int</span>, <span t="k"></span><span data-unresolved-link="" t="n">width</span>: <span data-unresolved-link="" t="t">Int</span>): <a href="classes/Matrix.html" t="t">Matrix</a>[<span data-unresolved-link="" t="t">A</span>]
+            </div>
+           </div>
+          </div>
+          <div class="docs">
+           <span class="modifiers"></span>
+           <div>
+            <div class="originInfo"></div>
+            <div class="memberDocumentation">
+             <div class="documentableBrief doc">
+              <p>Reshapes this sequence into a <a href="classes/Matrix.html">problemutils.classes.Matrix</a> of the given width and height.</p> 
+             </div>
+             <div class="cover">
+              <div class="doc">
+               <p>Reshapes this sequence into a <a href="classes/Matrix.html">problemutils.classes.Matrix</a> of the given width and height.</p> 
+              </div>
+              <h2 class="h200">Attributes</h2>
+              <dl class="attributes attributes-small"></dl>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="split-fffff643">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#split-fffff643" t="n" class="documentableName ">split</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">elem</span>: <span data-unresolved-link="" t="t">A</span>): <span data-unresolved-link="" t="t">List</span>[<span data-unresolved-link="" t="t">Seq</span>[<span data-unresolved-link="" t="t">A</span>]]
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div>
+         <span class="groupHeader"><span t="k">extension </span>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>](xs: <span data-unresolved-link="" t="t">Vector</span>[<span data-unresolved-link="" t="t">A</span>])(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">xs</span>: <span data-unresolved-link="" t="t">Vector</span>[<span t="t">A</span>])(<span t="k">implicit </span><span t="k"></span><span data-unresolved-link="" t="n">evidence$2</span>: <span data-unresolved-link="" t="t">Numeric</span>[<span data-unresolved-link="" t="t">A</span>])</span>
+         <div class="documentableElement" id="dot-fffff7d3" data-f-keywords="infix">
+          <div class="documentableElement-expander">
+           <button class="icon-button ar show-content"></button>
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"><span t="k">infix </span></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#dot-fffff7d3" t="n" class="documentableName ">dot</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">ys</span>: <span data-unresolved-link="" t="t">Vector</span>[<span data-unresolved-link="" t="t">A</span>]): <span data-unresolved-link="" t="t">A</span>
+            </div>
+           </div>
+          </div>
+          <div class="docs">
+           <span class="modifiers"></span>
+           <div>
+            <div class="originInfo"></div>
+            <div class="memberDocumentation">
+             <div class="documentableBrief doc">
+              <p>Computes the dot product of 2 vectors of the same length.</p> 
+             </div>
+             <div class="cover">
+              <div class="doc">
+               <p>Computes the <a href="https://en.wikipedia.org/wiki/Dot_product">dot product</a> of 2 vectors of the same length.</p> 
+              </div>
+              <h2 class="h200">Attributes</h2>
+              <dl class="attributes attributes-small"></dl>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div>
+         <span class="groupHeader"><span t="k">extension </span>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>](xs: <span data-unresolved-link="" t="t">Vector</span>[<span data-unresolved-link="" t="t">A</span>])(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">xs</span>: <span data-unresolved-link="" t="t">Vector</span>[<span t="t">A</span>])(<span t="k">implicit </span><span t="k"></span><span data-unresolved-link="" t="n">evidence$3</span>: <span data-unresolved-link="" t="t">Numeric</span>[<span data-unresolved-link="" t="t">A</span>])</span>
+         <div class="documentableElement" id="cross-fffff9b7" data-f-keywords="infix">
+          <div class="documentableElement-expander">
+           <button class="icon-button ar show-content"></button>
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"><span t="k">infix </span></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#cross-fffff9b7" t="n" class="documentableName ">cross</a>(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">ys</span>: <span data-unresolved-link="" t="t">Vector</span>[<span data-unresolved-link="" t="t">A</span>]): <span data-unresolved-link="" t="t">Vector</span>[<span data-unresolved-link="" t="t">A</span>]
+            </div>
+           </div>
+          </div>
+          <div class="docs">
+           <span class="modifiers"></span>
+           <div>
+            <div class="originInfo"></div>
+            <div class="memberDocumentation">
+             <div class="documentableBrief doc">
+              <p>Computes the cross product of 2 vectors of length 3.</p> 
+             </div>
+             <div class="cover">
+              <div class="doc">
+               <p>Computes the <a href="https://en.wikipedia.org/wiki/Cross_product">cross product</a> of 2 vectors of length 3.</p> 
+              </div>
+              <h2 class="h200">Attributes</h2>
+              <dl class="attributes attributes-small"></dl>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div>
+         <span class="groupHeader"><span t="k">extension </span>[<span t="k"></span><span data-unresolved-link="" t="t">A</span>](xs: <span data-unresolved-link="" t="t">Vector</span>[<span data-unresolved-link="" t="t">A</span>])(<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">xs</span>: <span data-unresolved-link="" t="t">Vector</span>[<span t="t">A</span>])</span>
+         <div class="documentableElement" id="magnitude-fffff42e">
+          <div class="documentableElement-expander">
+           <button class="icon-button ar show-content"></button>
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#magnitude-fffff42e" t="n" class="documentableName ">magnitude</a>: <span data-unresolved-link="" t="t">Double</span>
+            </div>
+           </div>
+          </div>
+          <div class="docs">
+           <span class="modifiers"></span>
+           <div>
+            <div class="originInfo"></div>
+            <div class="memberDocumentation">
+             <div class="documentableBrief doc">
+              <p>Returns the magnitude of this vector.</p> 
+             </div>
+             <div class="cover">
+              <div class="doc">
+               <p>Returns the <a href="https://en.wikipedia.org/wiki/Magnitude_(mathematics)#Vector_spaces">magnitude</a> of this vector.</p> 
+              </div>
+              <h2 class="h200">Attributes</h2>
+              <dl class="attributes attributes-small"></dl>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="normalized-482">
+          <div class="documentableElement-expander">
+           <button class="icon-button ar show-content"></button>
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#normalized-482" t="n" class="documentableName ">normalized</a>: <span data-unresolved-link="" t="t">Vector</span>[<span data-unresolved-link="" t="t">Double</span>]
+            </div>
+           </div>
+          </div>
+          <div class="docs">
+           <span class="modifiers"></span>
+           <div>
+            <div class="originInfo"></div>
+            <div class="memberDocumentation">
+             <div class="documentableBrief doc">
+              <p>Returns a normalized version of this vector.</p> 
+             </div>
+             <div class="cover">
+              <div class="doc">
+               <p>Returns a <a href="https://en.wikipedia.org/wiki/Unit_vector">normalized</a> version of this vector.</p> 
+              </div>
+              <h2 class="h200">Attributes</h2>
+              <dl class="attributes attributes-small"></dl>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="documentableElement" id="toVec3-fffff9c8">
+          <div class="documentableElement-expander">
+           <div class="header monospace mono-medium">
+            <div class="signature">
+             <span class="modifiers"></span><span class="kind"><span t="k">def </span></span><a href="extensions.html#toVec3-fffff9c8" t="n" class="documentableName ">toVec3</a>: (<span data-unresolved-link="" t="t">Int</span>, <span data-unresolved-link="" t="t">Int</span>, <span data-unresolved-link="" t="t">Int</span>)
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </section>
+     </div>
+    </section>
+   </div>
+  </div>
+ </div>
+</section></div><div id="toc" class="body-small"><div id="toc-container"><span class="toc-title h200">In this article</span><nav class="toc-nav"><ul class="toc-list"><li><a href="#members-list">Members list</a><ul><li><a href="#Value-members">Value members</a><ul><li><a href="#Concrete-methods">Concrete methods</a></li></ul></li><li><a href="#Extensions">Extensions</a><ul><li><a href="#Extensions">Extensions</a></li></ul></li></ul></li></ul></nav></div></div></div><div id="footer" class="body-small mobile-footer"><div class="left-container">Generated with</div><div class="right-container"><a href="https://github.com/lampepfl/dotty"><button class="icon-button gh"></button></a><a href="https://twitter.com/scala_lang"><button class="icon-button twitter"></button></a><a href="https://discord.com/invite/scala"><button class="icon-button discord"></button></a><a href="https://gitter.im/scala/scala"><button class="icon-button gitter"></button></a><div class="text"></div></div><div class="text-mobile"></div></div></div></div></body></html>
