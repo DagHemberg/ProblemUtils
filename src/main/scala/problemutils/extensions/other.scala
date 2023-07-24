@@ -22,14 +22,16 @@ extension [A](mat: Matrix[Matrix[A]])
 
 extension (tup: Pos2D)
   def transpose: Pos2D = tup.swap
-  
+
   def row = tup._1
   def col = tup._2
+
   def x = tup._2
   def y = tup._1
 
   def +(other: Pos2D) = (tup._1 + other._1, tup._2 + other._2)
   def -(other: Pos2D) = (tup._1 - other._1, tup._2 - other._2)
+  def %(other: Pos2D) = (math.floorMod(tup._1, other._1), math.floorMod(tup._2, other._2))
 
   def up: Pos2D = (row - 1, col)
   def down: Pos2D = (row + 1, col)
@@ -59,13 +61,9 @@ extension (tup: Pos2D)
   def distance(other: Pos2D) = 
     (tup - other).toVector.magnitude
   def manhattan(other: Pos2D) = 
-    (tup - other).toVector.map(math.abs).sum
+    (tup - other).toVector.sumBy(math.abs)
 
   def move(dir: Cardinal): Pos2D = tup + dir.toPos2D
-
-  // infix def dot(other: Vec2): Double = toVector dot other.toVector
-  // infix def cross(other: Vec2): Double = x * other.y - other.x * y
-  // def magnitude: Double = toVector.magnitude
 
 extension (v: Pos3D)
   def x = v._1
@@ -76,15 +74,18 @@ extension (v: Pos3D)
   def r = v._2
   def s = v._3
 
+  def up: Pos3D    = (x, y - 1, z)
+  def down: Pos3D  = (x, y + 1, z)
+  def left: Pos3D  = (x - 1, y, z)
+  def right: Pos3D = (x + 1, y, z)
+  def in: Pos3D    = (x, y, z - 1)
+  def out: Pos3D   = (x, y, z + 1)
+
   def toVector = Vector(v.x, v.y, v.z)
   def +(other: Pos3D) = (v.x + other.x, v.y + other.y, v.z + other.z)
   def -(other: Pos3D) = (v.x - other.x, v.y - other.y, v.z - other.z)
 
   def distance(other: Pos3D) = (v - other).toVector.magnitude
-  def manhattan(other: Pos3D) = (v - other).toVector.map(math.abs).sum
+  def manhattan(other: Pos3D) = (v - other).toVector.sumBy(math.abs)
 
   def move(dir: Hex) = v + dir.toVec3
-
-  // infix def dot(other: Vec3): Double = v.toVector dot other.toVector
-  // infix def cross(other: Vec3): Vec3 = (v.toVector cross other.toVector).toVec3
-  // def magnitude: Double = v.toVector.magnitude

@@ -32,6 +32,11 @@ extension [A](a: A)
     if p(a) then println(s"[${RED}!${RESET}] $a")
     a
 
+  /** Logs any attribute of object `a` in the console *if* the condition `p` is satisfied and then returns the object without modifying it. */
+  def logAttrIf[B](f: A => B)(p: B => Boolean) = 
+    if p(f(a)) then println(s"[${RED}!${RESET}] ${f(a)}")
+    a
+
   /** Similar to `log`, but takes a color parameter. */
   def logCol(color: String = "yellow") =
     val col = color.toLowerCase match

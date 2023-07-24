@@ -12,9 +12,7 @@ val Hex = classes.Hex
 
 type Matrix[A] = classes.Matrix[A]
 val Matrix = classes.Matrix
-val X = classes.Matrix.Axis.X
-val Y = classes.Matrix.Axis.Y
-val Z = classes.Matrix.Axis.Z
+val Axis = classes.Matrix.Axis
 
 type Graph[V] = classes.graphs.Graph[V]
 type FiniteGraph[V] = classes.graphs.FiniteGraph[V]
@@ -31,4 +29,3 @@ val ProceduralGraph = classes.graphs.ProceduralGraph
 val Edge = classes.graphs.Edge
 val Path = classes.graphs.Path
 val DisjointSets = classes.graphs.DisjointSets
-

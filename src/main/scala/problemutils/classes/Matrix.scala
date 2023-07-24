@@ -6,8 +6,10 @@ import math.*, Numeric.Implicits.infixNumericOps
 /** A generic Matrix class. Useful for working with 2D structures.
  * @tparam A The type of elements in the matrix. When `A` is a [[scala.Numeric]] type, a number of extension methods are made available which allow for basic mathematical matrix operations.
 */
-case class Matrix[A] private (private val input: Vector[Vector[A]]):
-  extension [A] (input: Vector[Vector[A]]) private def tm = Matrix(input)
+case class Matrix[A] private (private val input: Vector[Vector[A]]) 
+  extends IterableOnce[A]:
+  
+  extension [A] (input: Vector[Vector[A]]) private def tm = new Matrix(input)
 
   val height = input.size
   val width = input.head.size
@@ -31,6 +33,19 @@ case class Matrix[A] private (private val input: Vector[Vector[A]]):
         else s"\n${input.init.tail.map(row => s"⎜${pad(row)} ⎟").mkString("\n")}"
       }\n⎝${pad(input.last)} ⎠"
 
+  override def iterator: Iterator[A] = input.iterator.flatMap(_.iterator)
+
+  def mkString = input.map(_.mkString).mkString
+
+  def mkString(sep: String) = 
+    input.map(_.mkString(sep)).mkString(sep)
+
+  def mkString(sep: String, rowSep: String) = 
+    input.map(_.mkString(sep)).mkString(rowSep)
+
+  def mkString(start: String, sep: String, end: String) = 
+    input.map(_.mkString(start, sep, end)).mkString(start, sep, end)
+
   /** Returns the element at the given position `(row, col)` */
   def apply(index: (Int, Int)): A = input(index.row)(index.col)
 
@@ -51,13 +66,8 @@ case class Matrix[A] private (private val input: Vector[Vector[A]]):
 
   def range = Matrix.range(height, width)
   def indices = 
-    (0 until height)
-      .toVector
-      .map(row => (0 until width).toVector.map(col => (row, col)))
-      .tm
+    (for row <- 0 until height; col <- 0 until width yield (row, col)).reshape(height, width)
 
-  // def indexOutsideBounds(row: Int, col: Int): Boolean =
-  //   0 > row || row >= height || 0 > col || col >= width
   def indexOutsideBounds(index: Pos2D): Boolean = 
     0 > index.row || index.row >= height || 0 > index.col || index.col >= width
 
@@ -76,18 +86,21 @@ case class Matrix[A] private (private val input: Vector[Vector[A]]):
   def filterRow(f: Vector[A] => Boolean) = input.filter(f).tm
   def filterCol(f: Vector[A] => Boolean) = input.transpose.filter(f).transpose.tm
 
+  def find(pred: A => Boolean) = input.flatten.find(pred)
+  def indexWhere(pred: A => Boolean) = zipWithIndex.find((a, b) => pred(a)).map(_._2)
+
   /** Returns the [transpose](https://en.wikipedia.org/wiki/Transpose) of this matrix. */
   def transpose = input.transpose.tm
-  def flipCols = input.map(_.reverse).tm
-  def flipRows = input.reverse.tm
-  def rotateRight = transpose.flipCols
-  def rotateLeft = flipCols.transpose
+  def reverseCols = input.map(_.reverse).tm
+  def reverseRows = input.reverse.tm
+  def rotateRight = transpose.reverseCols
+  def rotateLeft = reverseCols.transpose
 
   def swapRows(a: Int, b: Int) = 
-    Matrix(input.updated(a, input(b)).updated(b, input(a)))
+    new Matrix(input.updated(a, input(b)).updated(b, input(a)))
   
   def swapCols(a: Int, b: Int) =
-    Matrix(input.map(_.updated(a, input(a)(b)).updated(b, input(a)(a))))
+    new Matrix(input.map(_.updated(a, input(a)(b)).updated(b, input(a)(a))))
 
   private def checkAppendHorizontal(other: Matrix[A]) = 
     require(
@@ -106,26 +119,26 @@ case class Matrix[A] private (private val input: Vector[Vector[A]]):
 
   def appendedLeft(other: Matrix[A]) = 
     checkAppendHorizontal(other)
-    Matrix(input.zip(other.input).map((row, otherRow) => otherRow ++ row))
+    new Matrix(input.zip(other.input).map((row, otherRow) => otherRow ++ row))
 
   def appendedRight(other: Matrix[A]) =
     checkAppendHorizontal(other)
-    Matrix(input.zip(other.input).map((row, otherRow) => row ++ otherRow))
+    new Matrix(input.zip(other.input).map((row, otherRow) => row ++ otherRow))
 
   def appendedTop(other: Matrix[A]) =
     checkAppendVertical(other)
-    Matrix(other.input ++ input)
+    new Matrix(other.input ++ input)
 
   def appendedBottom(other: Matrix[A]) =
     checkAppendVertical(other)
-    Matrix(input ++ other.input)
+    new Matrix(input ++ other.input)
 
   def dropRow(row: Int) = (input.take(row) ++ input.drop(row + 1)).tm
   def dropCol(col: Int) = input.map(row => row.take(col) ++ row.drop(col + 1)).tm
 
   def zip[B](other: Matrix[B]): Matrix[(A, B)] =
-    require(dimensions == other.dimensions, "Can't zip matrices of different dimensions")
-    Matrix(input.zip(other.input).map((row, otherRow) => row.zip(otherRow)))
+    // require(dimensions == other.dimensions, "Can't zip matrices of different dimensions")
+    new Matrix(input.zip(other.input).map((row, otherRow) => row.zip(otherRow)))
 
   def zipWithIndex: Matrix[(A, Pos2D)] = zip(indices)
   def zipWithRange: Matrix[(A, Int)] = zip(Matrix.range(height, width))
@@ -145,38 +158,88 @@ case class Matrix[A] private (private val input: Vector[Vector[A]]):
     Matrix(height, other.width)(rs(_) dot cs(_))
 
   /** Computes the [determinant](https://en.wikipedia.org/wiki/Determinant) of this matrix.*/
-  def determinant(using Numeric[A]): A = 
+  // about ~2% wrong answer rate lol
+  // no idea why
+  def determinant(using Numeric[A]): Double = 
     checkSquare("determinant")
-    width match
-      case 1 => apply(0, 0)
-      case 2 => (apply(0, 0) * apply(1, 1) - apply(0, 1) * apply(1, 0))
-      case n => (0 until n)
-        .map(i => (if i % 2 == 0 then apply(0, i) else -apply(0, i)) * (dropCol(i).dropRow(0)).determinant)
-        .sum
+    var p = 1
+    var willBeZero = false
+    var gauss = map(_.toDouble)
+
+    // println(gauss)
+    if gauss.rows.exists(_.forall(_ == 0)) then 0
+    else if gauss.cols.exists(_.forall(_ == 0)) then 0
+    else for row <- 0 until height - 1 if !willBeZero do
+      val absCol = gauss.col(row).map(_.abs)
+      if absCol.drop(row).max == 0 then willBeZero = true
+      val pivotIndex = absCol.indexWhere(n => n == absCol.drop(row).max, row)
+      // println(s"absCol: $absCol\npivotIndex: $pivotIndex")
+      if row < pivotIndex then 
+        // println(s"swapping rows $row and $pivotIndex")
+        gauss = gauss.swapRows(row, pivotIndex)
+        p *= -1
+
+      for rowDown <- row + 1 until height if !willBeZero do
+        val factor = gauss(rowDown, row) / gauss(row, row)        
+        gauss = gauss.updated(rowDown, row)(0)
+        for col <- row + 1 until height if factor != 0 do
+          gauss = gauss.updated(rowDown, col)(gauss(rowDown, col) - factor * gauss(row, col))
+          // println(s"row: $row\nrowDown: $rowDown\ncol: $col\nfactor: $factor$gauss\n")
+      
+    if willBeZero then 0 else gauss.diagonalProduct * p
+
+    // for row <- 0 until height if !willBeZero do      
+    //   val absCol = gauss.col(row).map(_.abs)
+    //   if absCol.drop(row).max == 0 then willBeZero = true
+    //   else
+    //     val pivotIndex = absCol.indexOf(absCol.drop(row).max)
+    //     if pivotIndex != row then
+    //       gauss = gauss.swapRows(row, pivotIndex)
+    //       p *= -1
+
+    //   row.lg
+    //   gauss.lg
+    //   willBeZero.logIf(identity)
+    //   for rowDown <- row + 1 until height do
+    //     val factor = gauss(rowDown, row) / gauss(row, row)
+    //     for col <- row until height do
+    //       gauss = gauss.updated(rowDown, col)(gauss(rowDown, col) - factor * gauss(row, col))
+
+    // if willBeZero then 0 else gauss.diagonalProduct * p
+
+  def diagonal = 
+    (for i <- 0 until (width min height) yield apply(i, i)).toVector
+
+  def oppositeDiagonal = 
+    (for i <- 0 until (width min height) yield apply(i, width - i - 1)).toVector
 
   /** Computes the [trace](https://en.wikipedia.org/wiki/Trace_(linear_algebra)) of this matrix.*/
   def trace(using Numeric[A]): A = 
     checkSquare("trace")
-    (0 until width).map(i => apply(i, i)).sum
+    diagonal.sum
 
-  def determinantOption(using Numeric[A]): Option[A] = if isSquare then Some(determinant) else None
+  def diagonalProduct(using Numeric[A]): A = 
+    checkSquare("diagonal product")
+    diagonal.product
+
+  def determinantOption(using Numeric[A]): Option[Double] = if isSquare then Some(determinant) else None
   def traceOption(using Numeric[A]): Option[A] = if isSquare then Some(trace) else None
   
 object Matrix:
-  extension [A] (input: Vector[Vector[A]]) private def tm = Matrix(input)
+  extension [A] (input: Vector[Vector[A]]) private def tm = new Matrix(input)
 
   /** Typesafe helper enum for the rotation functions in the [[problemutils.classes.Matrix]] object. */
-  enum Axis:
+  private [problemutils] enum Axis:
     case X, Y, Z
 
   def apply[A](height: Int, width: Int)(f: Pos2D => A): Matrix[A] = 
-    Vector.tabulate(height, width)((a, b) => f(a, b)).tm
+    Vector.tabulate(height, width)((r, c) => f(r, c)).tm
 
   def from[A](input: Seq[Seq[A]]) = 
     require(input.size > 0, "Matrix must have at least one row")
     require(input.head.size > 0, "Matrix must have at least one column")
     require(input.forall(_.size == input.head.size), "All rows must have the same length")
-    Matrix(input.map(_.toVector).toVector)
+    new Matrix(input.map(_.toVector).toVector)
 
   /** Creates an [identity matrix](https://en.wikipedia.org/wiki/Identity_matrix) of the given dimension. */
   def identity(size: Int) = 

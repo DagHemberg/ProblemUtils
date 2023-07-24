@@ -19,15 +19,15 @@ case class FiniteGraph[V] private (private val elems: Set[Edge[V]]) extends Grap
 
   def union(other: Graph[V]) = other match
     case g: FiniteGraph[V] => FiniteGraph(elems union g.elems)
-    case g: GeneratingGraph[V] => g union this
+    case g: DynamicGraph[V] => g union this
 
   def intersect(other: Graph[V]) = other match
     case g: FiniteGraph[V] => FiniteGraph(elems intersect g.elems)
-    case g: GeneratingGraph[V] => g intersect this
+    case g: DynamicGraph[V] => g intersect this
 
   def diff(other: Graph[V]) = other match
     case g: FiniteGraph[V] => FiniteGraph(elems diff g.elems)
-    case g: GeneratingGraph[V] => g diff this
+    case g: DynamicGraph[V] => g diff this
 
   /** Reverses all the edges in the graph. */
   def transpose = Graph.from(edges.map(_.reverse))

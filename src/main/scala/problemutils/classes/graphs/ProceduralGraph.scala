@@ -2,10 +2,8 @@ package problemutils.classes.graphs
 
 import problemutils.extensions.*
 
-case class ProceduralGraph[V] private (
-    override val adjacencyFunction: V => Set[Edge[V]], 
-    private val any: Any = None
-  ) extends GeneratingGraph[V](adjacencyFunction):
+class ProceduralGraph[V] private (adjacencyFunction: V => Set[Edge[V]]) 
+  extends DynamicGraph[V](using adjacencyFunction):
 
   override def toString = "ProceduralGraph(<not computed>)"
 
@@ -17,11 +15,13 @@ case class ProceduralGraph[V] private (
 
 object ProceduralGraph:
   def apply[V](adjacencyFunction: V => IterableOnce[V]): ProceduralGraph[V] =
-    def adj(from: V) = adjacencyFunction(from).iterator.map(to => Edge(from, to)).toSet
-    ProceduralGraph(adj)
+    def adj(from: V) = 
+      adjacencyFunction(from).iterator.map(to => Edge(from, to)).toSet
+    new ProceduralGraph(adj)
 
-  def from[V](adjacencyFunction: V => Set[Edge[V]]) = ProceduralGraph(adjacencyFunction)
+  def from[V](adjacencyFunction: V => Set[Edge[V]]) = 
+    new ProceduralGraph(adjacencyFunction)
 
   def fromCost[V](adjacencyFunction: V => IterableOnce[(V, Double)]) =
     def adj(from: V) = adjacencyFunction(from).iterator.map((to, cost) => Edge(from, to, cost)).toSet
-    ProceduralGraph(adj)
+    new ProceduralGraph(adj)

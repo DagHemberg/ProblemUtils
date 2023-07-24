@@ -2,10 +2,8 @@ package problemutils.classes.graphs
 
 import scala.collection.mutable
 
-case class LazyGraph[V] private (
-  override val adjacencyFunction: V => Set[Edge[V]], 
-  private val any: Any = None
-) extends GeneratingGraph[V](adjacencyFunction):
+class LazyGraph[V] private (adjacencyFunction: V => Set[Edge[V]]) 
+  extends DynamicGraph[V](using adjacencyFunction):
   
   override def toString = if edges.isEmpty 
     then "LazyGraph(<not computed>)"
@@ -34,10 +32,10 @@ case class LazyGraph[V] private (
 object LazyGraph:
   def apply[V](adjacencyFunction: V => IterableOnce[V]): LazyGraph[V] = 
     def adj(from: V) = adjacencyFunction(from).iterator.map(to => Edge(from, to)).toSet
-    LazyGraph(adj)
+    new LazyGraph(adj)
   
-  def from[V](adjacencyFunction: V => Set[Edge[V]]) = LazyGraph(adjacencyFunction)
+  def from[V](adjacencyFunction: V => Set[Edge[V]]) = new LazyGraph(adjacencyFunction)
 
   def fromCost[V](adjacencyFunction: V => IterableOnce[(V, Double)]) = 
     def adj(from: V) = adjacencyFunction(from).iterator.map((to, cost) => Edge(from, to, cost)).toSet
-    LazyGraph(adj)
+    new LazyGraph(adj)
